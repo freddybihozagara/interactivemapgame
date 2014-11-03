@@ -1,5 +1,5 @@
-interactivemapgame
-==================
+interactive map game
+====================
 
 An interactive map game
 
