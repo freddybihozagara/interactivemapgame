@@ -7,6 +7,7 @@
     //* @pjs preload="rwamagana.svg"; */
      //* @pjs preload="ngoma.svg"; */
     //* @pjs preload="kirehe.svg"; */
+    // -------------
 
     string uri ="nyagatare.svg";
      string uri ="bugesera.svg";
@@ -59,18 +60,18 @@
         image(g, 161, 327);
         image(h, 246, 297);
         
-          if (mousePressed == true && mouseX < 220 && mouseY > 40 && mouseY < 190) {
+          if (mousePressed == true && mouseX < 300 && mouseX > 120 && mouseY > 40 && mouseY < 150) {
             //code
             background(255, 255, 255);
             fill(0, 0, 0);
             text(nyagatare, 120, 10);
-          } else if (mousePressed == true && mouseX < 180 && mouseX > 50 && mouseY > 340 && mouseY < 390) {
+          } else if (mousePressed == true && mouseX < 170 && mouseX > 70 && mouseY > 340 && mouseY < 390) {
             //code
             background(255, 255, 255);
             fill(0, 0, 0);
             text(bugesera, 120, 10);
           }
-          else if (mousePressed == true && mouseX < 225 && mouseX > 60 && mouseY > 100 && mouseY < 150) {
+          else if (mousePressed == true && mouseX < 360 && mouseX > 230 && mouseY > 220 && mouseY < 320) {
             //code
             background(255, 255, 255);
             fill(0, 0, 0);
@@ -82,17 +83,17 @@
             fill(0, 0, 0);
             text(rwamagana, 120, 10);
           }
-          else if (mousePressed == true && mouseX < 245 && mouseX > 190 && mouseY > 340 && mouseY < 390) {
+          else if (mousePressed == true && mouseX < 300 && mouseX > 170 && mouseY > 340 && mouseY < 390) {
             //code
             background(255, 255, 255);
             fill(0, 0, 0);
             text(ngoma, 120, 10);
-          }else if (mousePressed == true && mouseX < 390 && mouseX > 320 && mouseY > 360 && mouseY < 400) {
+          }else if (mousePressed == true && mouseX < 390 && mouseX > 300 && mouseY > 360 && mouseY < 400) {
             //code
             background(255, 255, 255);
             fill(0, 0, 0);
             text(kirehe, 120, 10);
-          }else if (mousePressed == true && mouseX < 225 && mouseX > 60 && mouseY > 80 && mouseY < 110) {
+          }else if (mousePressed == true && mouseX < 320 && mouseX > 100 && mouseY > 150 && mouseY < 210) {
             //code
             background(255, 255, 255);
             fill(0, 0, 0);
