@@ -9,7 +9,7 @@
     //* @pjs preload="kirehe.svg"; */
     // -------------
 
-    string uri ="nyagatare.svg";
+     string uri ="nyagatare.svg";
      string uri ="bugesera.svg";
      string uri ="gatsibo.svg";
      string uri ="kayonza.svg";
