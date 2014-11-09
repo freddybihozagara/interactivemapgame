@@ -23,12 +23,23 @@
         path.add(new Point(8, 139));
         path.closed = true;
         
-        path.onClick = function(event) {
-        //this.fillColor = 'red';
         var text = new PointText(new Point(10, 10));
         text.fillColor = 'black';
-        text.content = 'nyagatare';
+        
+        
+        path.onMouseEnter = function(event) {
+                
+        text.content = 'nyagatare';       
+        text.visible = true;
+        
     }
+    
+        path.onMouseLeave = function(event) {
+   
+        text.visible = false;
+        
+    }
+    
     
     
   
