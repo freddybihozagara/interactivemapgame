@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+    <title>Paper Js</title>
+    <script type="text/javascript" src="paper.js"></script>
+    <script type="text/paperscript" canvas="myCanvas">
+        
+   
+        
+        
+    var path = new Path();
+        path.strokeColor = 'black';
+        path.fillColor = '#230';
+        path.add(new Point(55, 58));
+        path.add(new Point(85, 60));
+        path.add(new Point(104, 10));
+        path.add(new Point(153, 13));
+        path.add(new Point(159, 49));
+        path.add(new Point(204, 115));
+        path.add(new Point(104, 136));
+        path.add(new Point(57, 156));
+        path.add(new Point(8, 139));
+        path.closed = true;
+        
+        path.onClick = function(event) {
+        //this.fillColor = 'red';
+        var text = new PointText(new Point(10, 10));
+        text.fillColor = 'black';
+        text.content = 'nyagatare';
+    }
+    
+    
+  
+    var circle = new Path.Circle({
+        center: [80, 50],
+        radius: 3,
+        fillColor: 'red'
+  
+  
+  
+  });
+        
+    </script>
+    <script type="text/javascript" src="paperjstutorial.js"></script>
+
+      
+  
+</head>
+
+<body>
+    <canvas id="myCanvas" resize></canvas>
+
+
+
+
+    
+    <!-- Insert your content here -->
+</body>
+</html>
