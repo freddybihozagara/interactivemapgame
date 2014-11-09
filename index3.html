@@ -6,8 +6,7 @@
     <script type="text/javascript" src="paper.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
         
-   
-        
+         
         
     var path = new Path();
         path.strokeColor = 'black';
@@ -29,43 +28,32 @@
         
         path.onMouseEnter = function(event) {
                 
-        text.content = 'nyagatare';       
-        text.visible = true;
+            text.content = 'nyagatare';       
+            text.visible = true;
         
-    }
+        }
     
         path.onMouseLeave = function(event) {
    
-        text.visible = false;
+            text.visible = false;
         
-    }
+        }
     
-    
-    
+      
   
     var circle = new Path.Circle({
         center: [80, 50],
         radius: 3,
         fillColor: 'red'
   
-  
-  
-  });
+        });
         
     </script>
-    <script type="text/javascript" src="paperjstutorial.js"></script>
-
-      
-  
 </head>
 
+
 <body>
-    <canvas id="myCanvas" resize></canvas>
-
-
-
-
-    
+    <canvas id="myCanvas" resize></canvas>            
     <!-- Insert your content here -->
 </body>
 </html>
