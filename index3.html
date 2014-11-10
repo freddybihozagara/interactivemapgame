@@ -7,45 +7,75 @@
     <script type="text/paperscript" canvas="myCanvas">
                
         
-    var path = new Path();
-        path.strokeColor = 'black';
-        path.fillColor = '#230';
-        path.add(new Point(55, 58));
-        path.add(new Point(85, 60));
-        path.add(new Point(104, 10));
-        path.add(new Point(153, 13));
-        path.add(new Point(159, 49));
-        path.add(new Point(204, 115));
-        path.add(new Point(104, 136));
-        path.add(new Point(57, 156));
-        path.add(new Point(8, 139));
-        path.closed = true;
+    var nyagatarepath = new Path();
+        nyagatarepath.strokeColor = 'black';
+        nyagatarepath.fillColor = '#230';
+        nyagatarepath.add(new Point(155, 58));
+        nyagatarepath.add(new Point(185, 60));
+        nyagatarepath.add(new Point(204, 10));
+        nyagatarepath.add(new Point(253, 13));
+        nyagatarepath.add(new Point(259, 49));
+        nyagatarepath.add(new Point(304, 115));
+        nyagatarepath.add(new Point(204, 136));
+        nyagatarepath.add(new Point(157, 156));
+        nyagatarepath.add(new Point(108, 139));
+        nyagatarepath.closed = true;
         
         var text = new PointText(new Point(10, 10));
         text.fillColor = 'black';
         
         
-        path.onMouseEnter = function(event) {
-                
+        nyagatarepath.onMouseEnter = function(event) { 
             text.content = 'nyagatare';       
             text.visible = true;
-        
         }
     
-        path.onMouseLeave = function(event) {
-   
+        nyagatarepath.onMouseLeave = function(event) {
             text.visible = false;
-        
         }
     
       
   
-    var circle = new Path.Circle({
-        center: [80, 50],
+    var nyagatarecircle = new Path.Circle({
+        center: [180, 50],
         radius: 3,
         fillColor: 'red'
   
         });
+        
+        //-----------------------------------
+        
+        var gatsibopath = new Path();
+        gatsibopath.strokeColor = 'blue';
+        gatsibopath.fillColor = '#155';
+        gatsibopath.add(new Point(108, 140));
+        gatsibopath.add(new Point(157, 157));
+        gatsibopath.add(new Point(204, 137));
+        gatsibopath.add(new Point(305, 116));
+        gatsibopath.add(new Point(338, 149));
+        gatsibopath.add(new Point(340, 161));
+        gatsibopath.add(new Point(218, 171));
+        gatsibopath.add(new Point(216, 195));
+        gatsibopath.add(new Point(190, 215));
+        gatsibopath.add(new Point(135, 208));
+        gatsibopath.closed = true;
+        
+        var gatsibocircle = new Path.Circle({
+        center: [316, 118],
+        radius: 3,
+        fillColor: 'red'
+  
+        });
+        
+        gatsibopath.onMouseEnter = function(event) { 
+            text.content = 'gatsibo';       
+            text.visible = true;
+        }
+    
+        gatsibopath.onMouseLeave = function(event) {
+            text.visible = false;
+        }
+        
         
     </script>
 </head>
