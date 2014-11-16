@@ -10,17 +10,17 @@
         //--------------------------------
         
     var nyagatarepath = new Path();
-        nyagatarepath.strokeColor = 'black';
-        nyagatarepath.fillColor = '#230';
-        nyagatarepath.add(new Point(155, 58));
-        nyagatarepath.add(new Point(185, 60));
-        nyagatarepath.add(new Point(204, 10));
-        nyagatarepath.add(new Point(253, 13));
-        nyagatarepath.add(new Point(259, 49));
-        nyagatarepath.add(new Point(304, 115));
-        nyagatarepath.add(new Point(204, 136));
-        nyagatarepath.add(new Point(157, 156));
-        nyagatarepath.add(new Point(108, 139));
+        nyagatarepath.strokeColor = 'blue';
+        nyagatarepath.fillColor = '#485B17';
+        nyagatarepath.add(new Point(755, 158));
+        nyagatarepath.add(new Point(785, 160));
+        nyagatarepath.add(new Point(804, 110));
+        nyagatarepath.add(new Point(853, 113));
+        nyagatarepath.add(new Point(859, 149));
+        nyagatarepath.add(new Point(905, 216));
+        nyagatarepath.add(new Point(804, 237));
+        nyagatarepath.add(new Point(757, 257));
+        nyagatarepath.add(new Point(708, 240));
         nyagatarepath.closed = true;
         
         var text = new PointText(new Point(10, 10));
@@ -39,7 +39,7 @@
       
   
     var nyagatarecircle = new Path.Circle({
-        center: [180, 50],
+        center: [780, 150],
         radius: 3,
         fillColor: 'red'
   
@@ -49,21 +49,21 @@
         
         var gatsibopath = new Path();
         gatsibopath.strokeColor = 'blue';
-        gatsibopath.fillColor = '#155';
-        gatsibopath.add(new Point(108, 140));
-        gatsibopath.add(new Point(157, 157));
-        gatsibopath.add(new Point(204, 137));
-        gatsibopath.add(new Point(305, 116));
-        gatsibopath.add(new Point(338, 149));
-        gatsibopath.add(new Point(340, 161));
-        gatsibopath.add(new Point(218, 171));
-        gatsibopath.add(new Point(216, 195));
-        gatsibopath.add(new Point(190, 215));
-        gatsibopath.add(new Point(135, 208));
+        gatsibopath.fillColor = '#205E25';
+        gatsibopath.add(new Point(708, 240));
+        gatsibopath.add(new Point(757, 257));
+        gatsibopath.add(new Point(804, 237));
+        gatsibopath.add(new Point(905, 216));
+        gatsibopath.add(new Point(938, 249));
+        gatsibopath.add(new Point(940, 279));
+        gatsibopath.add(new Point(818, 281));
+        gatsibopath.add(new Point(816, 295));
+        gatsibopath.add(new Point(790, 315));
+        gatsibopath.add(new Point(735, 308));
         gatsibopath.closed = true;
         
         var gatsibocircle = new Path.Circle({
-        center: [316, 118],
+        center: [916, 218],
         radius: 3,
         fillColor: 'red'
   
@@ -75,6 +75,163 @@
         }
     
         gatsibopath.onMouseLeave = function(event) {
+            text.visible = false;
+        }
+        
+        
+        //----------------------------
+        var kayonzapath = new Path();
+        kayonzapath.strokeColor = 'blue';
+        kayonzapath.fillColor = '#156013';
+        kayonzapath.add(new Point(816, 295));
+        kayonzapath.add(new Point(818, 281));
+        kayonzapath.add(new Point(940, 279));
+        kayonzapath.add(new Point(936, 332));
+        kayonzapath.add(new Point(945, 356));
+        kayonzapath.add(new Point(873, 411));
+        kayonzapath.add(new Point(825, 384));
+        kayonzapath.add(new Point(842, 340));
+        kayonzapath.closed = true;
+        
+        
+        var kayonzacircle = new Path.Circle({
+        center: [945, 292],
+        radius: 3,
+        fillColor: 'red'
+  
+        });
+        
+        kayonzapath.onMouseEnter = function(event) { 
+            text.content = 'kayonza';       
+            text.visible = true;
+        }
+    
+        kayonzapath.onMouseLeave = function(event) {
+            text.visible = false;
+        }
+        
+        
+        //----------------------------
+        var rwamaganapath = new Path();
+        rwamaganapath.strokeColor = 'blue';
+        rwamaganapath.fillColor = '#8A8C23';
+        rwamaganapath.add(new Point(735, 308));
+        rwamaganapath.add(new Point(790, 315));
+        rwamaganapath.add(new Point(816, 295));
+        rwamaganapath.add(new Point(842, 340));
+        rwamaganapath.add(new Point(825, 384));
+        rwamaganapath.add(new Point(780, 401));
+        rwamaganapath.add(new Point(722, 384));
+        rwamaganapath.add(new Point(735, 350));
+        rwamaganapath.closed = true;
+        
+        
+        var rwamaganacircle = new Path.Circle({
+        center: [728, 320],
+        radius: 3,
+        fillColor: 'red'
+  
+        });
+        
+        rwamaganapath.onMouseEnter = function(event) { 
+            text.content = 'rwamagana';       
+            text.visible = true;
+        }
+    
+        rwamaganapath.onMouseLeave = function(event) {
+            text.visible = false;
+        }
+        
+        //----------------------------
+        var bugeserapath = new Path();
+        bugeserapath.strokeColor = 'blue';
+        bugeserapath.fillColor = '#1C4427';
+        bugeserapath.add(new Point(722, 384));
+        bugeserapath.add(new Point(780, 401));
+        bugeserapath.add(new Point(785, 470));
+        bugeserapath.add(new Point(761, 489));
+        bugeserapath.add(new Point(717, 491));
+        bugeserapath.add(new Point(682, 465));
+        bugeserapath.add(new Point(674, 421));
+        bugeserapath.add(new Point(672, 398));
+        bugeserapath.add(new Point(697, 376));
+        bugeserapath.closed = true;
+        
+        
+        var bugeseracircle = new Path.Circle({
+        center: [665, 398],
+        radius: 3,
+        fillColor: 'red'
+  
+        });
+        
+        bugeserapath.onMouseEnter = function(event) { 
+            text.content = 'bugesera';       
+            text.visible = true;
+        }
+    
+        bugeserapath.onMouseLeave = function(event) {
+            text.visible = false;
+        }
+        
+        //----------------------------
+        var ngomapath = new Path();
+        ngomapath.strokeColor = 'blue';
+        ngomapath.fillColor = '#35632D';
+        ngomapath.add(new Point(780, 401));
+        ngomapath.add(new Point(825, 384));
+        ngomapath.add(new Point(873, 411));
+        ngomapath.add(new Point(882, 432));
+        ngomapath.add(new Point(848, 466));
+        ngomapath.add(new Point(796, 464));
+        ngomapath.add(new Point(785, 470));
+        ngomapath.closed = true;
+        
+        
+        var ngomacircle = new Path.Circle({
+        center: [840, 473],
+        radius: 3,
+        fillColor: 'red'
+  
+        });
+        
+        ngomapath.onMouseEnter = function(event) { 
+            text.content = 'ngoma';       
+            text.visible = true;
+        }
+    
+        ngomapath.onMouseLeave = function(event) {
+            text.visible = false;
+        }
+        
+        
+        //----------------------------
+        var kirehepath = new Path();
+        kirehepath.strokeColor = 'blue';
+        kirehepath.fillColor = '#113D16';
+        kirehepath.add(new Point(873, 411));
+        kirehepath.add(new Point(945, 356));
+        kirehepath.add(new Point(966, 393));
+        kirehepath.add(new Point(939, 479));
+        kirehepath.add(new Point(901, 479));
+        kirehepath.add(new Point(858, 476));
+        kirehepath.add(new Point(848, 466));
+        kirehepath.closed = true;
+        
+        var kirehecircle = new Path.Circle({
+        center: [957, 365],
+        radius: 3,
+        fillColor: 'red'
+  
+        });
+        
+        
+        kirehepath.onMouseEnter = function(event) { 
+            text.content = 'kirehe';       
+            text.visible = true;
+        }
+    
+        kirehepath.onMouseLeave = function(event) {
             text.visible = false;
         }
         
