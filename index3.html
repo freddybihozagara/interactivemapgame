@@ -22,6 +22,8 @@
         nyagatarepath.add(new Point(757, 257));
         nyagatarepath.add(new Point(708, 240));
         nyagatarepath.closed = true;
+        nyagatarepath.fullySelected = true;
+        nyagatarepath.smooth();
         
         var text = new PointText(new Point(10, 300));
         text.fillColor = 'green';
@@ -63,6 +65,9 @@
         gatsibopath.add(new Point(790, 315));
         gatsibopath.add(new Point(735, 308));
         gatsibopath.closed = true;
+        gatsibopath.fullySelected = true;
+        
+        gatsibopath.smooth();
         
         var gatsibocircle = new Path.Circle({
         center: [916, 218],
@@ -94,7 +99,8 @@
         kayonzapath.add(new Point(825, 384));
         kayonzapath.add(new Point(842, 340));
         kayonzapath.closed = true;
-        
+        kayonzapath.fullySelected = true;
+        kayonzapath.smooth();
         
         var kayonzacircle = new Path.Circle({
         center: [945, 292],
@@ -126,7 +132,8 @@
         rwamaganapath.add(new Point(722, 384));
         rwamaganapath.add(new Point(735, 350));
         rwamaganapath.closed = true;
-        
+        rwamaganapath.fullySelected = true;
+        rwamaganapath.smooth();
         
         var rwamaganacircle = new Path.Circle({
         center: [728, 320],
@@ -158,7 +165,8 @@
         bugeserapath.add(new Point(672, 398));
         bugeserapath.add(new Point(697, 376));
         bugeserapath.closed = true;
-        
+        bugeserapath.fullySelected = true;
+        bugeserapath.smooth();
         
         var bugeseracircle = new Path.Circle({
         center: [665, 398],
@@ -188,7 +196,8 @@
         ngomapath.add(new Point(796, 464));
         ngomapath.add(new Point(785, 470));
         ngomapath.closed = true;
-        
+        ngomapath.fullySelected = true;
+        ngomapath.smooth();
         
         var ngomacircle = new Path.Circle({
         center: [840, 473],
@@ -219,6 +228,8 @@
         kirehepath.add(new Point(858, 476));
         kirehepath.add(new Point(848, 466));
         kirehepath.closed = true;
+        kirehepath.fullySelected = true;
+        kirehepath.smooth();
         
         var kirehecircle = new Path.Circle({
         center: [957, 365],
