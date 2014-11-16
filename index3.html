@@ -44,6 +44,7 @@
             tryAgain.strokeWeight = 'Bold';
         
         var j = 0;
+        var counter = 0; 
         
         var score = new PointText(new Point(400, 200));
                 score.content = j;
@@ -55,10 +56,10 @@
             eastguess = Math.round(sixRounds);
             guessQuestion.content = 'Where is ' + easternprovinces[eastguess]+ ' located';
             guessQuestion.visible = true;
-            
-             j++;
-            score.content = j;
+        
+            score.content = counter + j;
             score.visible = true;
+            
             }
             
         
@@ -69,8 +70,8 @@
             guessQuestion.content = 'Where is ' + easternprovinces[eastguess]+ ' located';
             guessQuestion.visible = true;
             
-            j++;
-            score.content = j;
+            
+            score.content = counter + j;
             score.visible = true;
             }
             
@@ -97,6 +98,21 @@
             nyagatarepath.fullySelected = true;
             nyagatarepath.smooth();
         
+            nyagatarepath.onMouseDown = function(event){
+            
+                if (easternprovinces[eastguess] == 'nyagatare'){
+                   // var counter;
+                    counter = counter + 100;
+                    score.content = counter;
+                    score.visible = true;
+                    } else{
+                    counter = counter - 100;
+                    score.content = counter;
+                    score.visible = true;
+                    
+                    }
+                }
+                
         var text = new PointText(new Point(10, 300));
             text.fillColor = 'green';
             text.fontWeight = 'bold';
@@ -141,6 +157,24 @@
             
             gatsibopath.smooth();
         
+           gatsibopath.onMouseDown = function(event){
+            
+                if (easternprovinces[eastguess] == 'gatsibo'){
+                    
+                   // var counter;
+                    counter = counter + 100;
+                    score.content = counter;
+                    score.visible = true;
+                    }else{
+                    counter = counter - 100;
+                    score.content = counter;
+                    score.visible = true;
+                    
+                    }
+                }
+            
+        
+        
         var gatsibocircle = new Path.Circle({
             center: [916, 218],
             radius: 3,
@@ -173,6 +207,22 @@
         kayonzapath.closed = true;
         kayonzapath.fullySelected = true;
         kayonzapath.smooth();
+        
+        kayonzapath.onMouseDown = function(event){
+            
+            if (easternprovinces[eastguess] == 'kayonza'){
+               // var counter;
+                counter = counter + 100;
+                score.content = counter;
+                score.visible = true;
+                }else{
+                    counter = counter - 100;
+                    score.content = counter;
+                    score.visible = true;
+                    
+                    }
+            }
+        
         
         var kayonzacircle = new Path.Circle({
         center: [945, 292],
@@ -207,6 +257,23 @@
             rwamaganapath.fullySelected = true;
             rwamaganapath.smooth();
             
+            
+            
+            rwamaganapath.onMouseDown = function(event){
+            
+                if (easternprovinces[eastguess] == 'rwamagana'){
+                 //  var counter;
+                    counter = counter + 100;
+                    score.content = counter;
+                    score.visible = true;
+                    }else{
+                    counter = counter - 100;
+                    score.content = counter;
+                    score.visible = true;
+                    
+                    }
+                }
+                
         var rwamaganacircle = new Path.Circle({
             center: [728, 320],
             radius: 3,
@@ -239,6 +306,23 @@
             bugeserapath.closed = true;
             bugeserapath.fullySelected = true;
             bugeserapath.smooth();
+ 
+            bugeserapath.onMouseDown = function(event){
+            
+                if (easternprovinces[eastguess] == 'bugesera'){
+                 //  var counter;
+                    counter = counter + 100;
+                    score.content = counter;
+                    score.visible = true;
+                    }else{
+                    counter = counter - 100;
+                    score.content = counter;
+                    score.visible = true;
+                    
+                    }
+                }
+     
+ 
             
         var bugeseracircle = new Path.Circle({
             center: [665, 398],
@@ -270,6 +354,23 @@
             ngomapath.closed = true;
             ngomapath.fullySelected = true;
             ngomapath.smooth();
+            
+            
+            ngomapath.onMouseDown = function(event){
+            
+            if (easternprovinces[eastguess] == 'ngoma'){
+              //  var counter;
+                counter = counter + 100;
+                score.content = counter;
+                score.visible = true;
+                }else{
+                    counter = counter - 100;
+                    score.content = counter;
+                    score.visible = true;
+                    
+                    }
+            }
+            
             
         var ngomacircle = new Path.Circle({
             center: [840, 473],
@@ -303,6 +404,21 @@
             kirehepath.fullySelected = true;
             kirehepath.smooth();
         
+        
+            kirehepath.onMouseDown = function(event){
+            
+            if (easternprovinces[eastguess] == 'kirehe'){
+              //  var counter;
+                counter = counter + 100;
+                score.content = counter;
+                score.visible = true;
+                }else{
+                    counter = counter - 100;
+                    score.content = counter;
+                    score.visible = true;
+                    
+                    }
+            }
         
         var kirehecircle = new Path.Circle({
             center: [957, 365],
