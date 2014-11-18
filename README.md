@@ -18,3 +18,6 @@ The raphael.js API and reference material can be found here http://raphaeljs.com
 The paper.js API and reference material can be found here http://paperjs.org/reference/global/
 
 Open index file with your web browser (chrome, firefox, IE) to view your work!
+
+Attention: This project is still in development.
+For immediate support, email us at support@imenasoftware.com
