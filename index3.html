@@ -22,7 +22,7 @@
             questionText.fillColor = 'black';
         
         var guessQuestion = new PointText(new Point(400, 130));
-            guessQuestion.content = 'Where is ' + easternprovinces[eastguess]+ ' located';
+            guessQuestion.content = 'Where is ' + easternprovinces[eastguess]+ ' located?';
             guessQuestion.fillColor = 'black';
         
         
@@ -34,8 +34,51 @@
             refreshBtnPath.add(new Point(500, 180));
             refreshBtnPath.add(new Point(400, 180));
             refreshBtnPath.closed = true;
+            
+        var ArrowNorth = new Path();
+            ArrowNorth.fillColor = 'black';
+            ArrowNorth.add(new Point(622, 110));
+            ArrowNorth.add(new Point(632, 100));
+            ArrowNorth.add(new Point(642, 110));
+            ArrowNorth.add(new Point(632, 105));
+            ArrowNorth.closed = true;
+            
+        var ArrowWest = ArrowNorth.clone();
+            ArrowWest.position = new Point(1030, 295);
+            ArrowWest.rotate(90);
+            
+        var ArrowEast = ArrowNorth.clone();
+            ArrowEast.position = new Point(230, 295);
+            ArrowEast.rotate(270);
+            
+        var ArrowSouth = ArrowNorth.clone();
+            ArrowSouth.position = new Point(630, 515);
+            ArrowSouth.rotate(180);
+            
         
-        
+        var North = new PointText(new Point(625, 80));
+            North.content = 'N';
+            North.fillColor = '#0C0707';
+            North.strokeWeight = 'Bold';
+            North.fontSize = 20;
+            
+        var South = new PointText(new Point(625, 550));
+            South.content = 'S';
+            South.fillColor = '#0C0707';
+            South.strokeWeight = 'Bold';
+            South.fontSize = 20;
+            
+        var East = new PointText(new Point(200, 300));
+            East.content = 'E';
+            East.fillColor = '#0C0707';
+            East.strokeWeight = 'Bold';
+            East.fontSize = 20;
+            
+        var West = new PointText(new Point(1050, 300));
+            West.content = 'W';
+            West.fillColor = '#0C0707';
+            West.strokeWeight = 'Bold';
+            West.fontSize = 20;
         
         
         var tryAgain = new PointText(new Point(420, 170));
@@ -101,7 +144,6 @@
             nyagatarepath.onMouseDown = function(event){
             
                 if (easternprovinces[eastguess] == 'nyagatare'){
-                   // var counter;
                     counter = counter + 100;
                     score.content = counter;
                     score.visible = true;
@@ -160,8 +202,6 @@
            gatsibopath.onMouseDown = function(event){
             
                 if (easternprovinces[eastguess] == 'gatsibo'){
-                    
-                   // var counter;
                     counter = counter + 100;
                     score.content = counter;
                     score.visible = true;
@@ -211,7 +251,6 @@
         kayonzapath.onMouseDown = function(event){
             
             if (easternprovinces[eastguess] == 'kayonza'){
-               // var counter;
                 counter = counter + 100;
                 score.content = counter;
                 score.visible = true;
@@ -262,7 +301,6 @@
             rwamaganapath.onMouseDown = function(event){
             
                 if (easternprovinces[eastguess] == 'rwamagana'){
-                 //  var counter;
                     counter = counter + 100;
                     score.content = counter;
                     score.visible = true;
@@ -310,7 +348,6 @@
             bugeserapath.onMouseDown = function(event){
             
                 if (easternprovinces[eastguess] == 'bugesera'){
-                 //  var counter;
                     counter = counter + 100;
                     score.content = counter;
                     score.visible = true;
@@ -359,7 +396,6 @@
             ngomapath.onMouseDown = function(event){
             
             if (easternprovinces[eastguess] == 'ngoma'){
-              //  var counter;
                 counter = counter + 100;
                 score.content = counter;
                 score.visible = true;
@@ -408,7 +444,6 @@
             kirehepath.onMouseDown = function(event){
             
             if (easternprovinces[eastguess] == 'kirehe'){
-              //  var counter;
                 counter = counter + 100;
                 score.content = counter;
                 score.visible = true;
