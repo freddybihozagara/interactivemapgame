@@ -15,7 +15,7 @@
         
         var easternprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe'];
         var sixRounds = Math.random()*6;
-        var eastguess = Math.round(sixRounds);
+        var guessEast = Math.round(sixRounds);
         
         var quizText = new PointText(new Point(400, 100));
             quizText.content = 'Wildcard';
@@ -25,7 +25,7 @@
             questionText.fillColor = 'black';
         
         var guessQuestion = new PointText(new Point(400, 130));
-            guessQuestion.content = 'Where is ' + easternprovinces[eastguess]+ ' located?';
+            guessQuestion.content = 'Where is ' + easternprovinces[guessEast]+ ' located?';
             guessQuestion.fillColor = 'black';
         
         
@@ -99,8 +99,8 @@
         
         tryAgain.onMouseDown = function(event){
             sixRounds = Math.random()*6;
-            eastguess = Math.round(sixRounds);
-            guessQuestion.content = 'Where is ' + easternprovinces[eastguess]+ ' located';
+            guessEast = Math.round(sixRounds);
+            guessQuestion.content = 'Where is ' + easternprovinces[guessEast]+ ' located';
             guessQuestion.visible = true;
     
             score.content = counter + j;
@@ -112,8 +112,8 @@
                     
         refreshBtnPath.onMouseDown = function(event){
             sixRounds = Math.random()*6;
-            eastguess = Math.round(sixRounds);
-            guessQuestion.content = 'Where is ' + easternprovinces[eastguess]+ ' located';
+            guessEast = Math.round(sixRounds);
+            guessQuestion.content = 'Where is ' + easternprovinces[guessEast]+ ' located';
             guessQuestion.visible = true;
             
             
@@ -146,7 +146,7 @@
         
             nyagatarepath.onMouseDown = function(event){
             
-                if (easternprovinces[eastguess] == 'nyagatare'){
+                if (easternprovinces[guessEast] == 'nyagatare'){
                     counter = counter + 100;
                     score.content = counter;
                     score.visible = true;
@@ -203,7 +203,7 @@
         
            gatsibopath.onMouseDown = function(event){
             
-                if (easternprovinces[eastguess] == 'gatsibo'){
+                if (easternprovinces[guessEast] == 'gatsibo'){
                     counter = counter + 100;
                     score.content = counter;
                     score.visible = true;
@@ -251,7 +251,7 @@
         
         kayonzapath.onMouseDown = function(event){
             
-            if (easternprovinces[eastguess] == 'kayonza'){
+            if (easternprovinces[guessEast] == 'kayonza'){
                 counter = counter + 100;
                 score.content = counter;
                 score.visible = true;
@@ -300,7 +300,7 @@
             
             rwamaganapath.onMouseDown = function(event){
             
-                if (easternprovinces[eastguess] == 'rwamagana'){
+                if (easternprovinces[guessEast] == 'rwamagana'){
                     counter = counter + 100;
                     score.content = counter;
                     score.visible = true;
@@ -346,7 +346,7 @@
  
             bugeserapath.onMouseDown = function(event){
             
-                if (easternprovinces[eastguess] == 'bugesera'){
+                if (easternprovinces[guessEast] == 'bugesera'){
                     counter = counter + 100;
                     score.content = counter;
                     score.visible = true;
@@ -393,7 +393,7 @@
             
             ngomapath.onMouseDown = function(event){
             
-            if (easternprovinces[eastguess] == 'ngoma'){
+            if (easternprovinces[guessEast] == 'ngoma'){
                 counter = counter + 100;
                 score.content = counter;
                 score.visible = true;
@@ -440,7 +440,7 @@
         
             kirehepath.onMouseDown = function(event){
             
-            if (easternprovinces[eastguess] == 'kirehe'){
+            if (easternprovinces[guessEast] == 'kirehe'){
                 counter = counter + 100;
                 score.content = counter;
                 score.visible = true;
