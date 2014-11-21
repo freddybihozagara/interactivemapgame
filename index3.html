@@ -15,7 +15,7 @@
         
         var easternprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe'];
         var sixRounds = Math.random()*6;
-        var guessEast = Math.round(sixRounds);
+        var district = Math.round(sixRounds);
         
         var quizText = new PointText(new Point(400, 100));
             quizText.content = 'Wildcard';
@@ -25,7 +25,7 @@
             questionText.fillColor = 'black';
         
         var guessQuestion = new PointText(new Point(400, 130));
-            guessQuestion.content = 'Where is ' + easternprovinces[guessEast]+ ' located?';
+            guessQuestion.content = 'Where is ' + easternprovinces[district]+ ' located?';
             guessQuestion.fillColor = 'black';
         
         
@@ -99,8 +99,8 @@
         
         tryAgain.onMouseDown = function(event){
             sixRounds = Math.random()*6;
-            guessEast = Math.round(sixRounds);
-            guessQuestion.content = 'Where is ' + easternprovinces[guessEast]+ ' located';
+            district = Math.round(sixRounds);
+            guessQuestion.content = 'Where is ' + easternprovinces[district]+ ' located';
             guessQuestion.visible = true;
     
             score.content = counter + j;
@@ -112,8 +112,8 @@
                     
         refreshBtnPath.onMouseDown = function(event){
             sixRounds = Math.random()*6;
-            guessEast = Math.round(sixRounds);
-            guessQuestion.content = 'Where is ' + easternprovinces[guessEast]+ ' located';
+            district = Math.round(sixRounds);
+            guessQuestion.content = 'Where is ' + easternprovinces[district]+ ' located';
             guessQuestion.visible = true;
             
             
@@ -146,7 +146,7 @@
         
             nyagatarepath.onMouseDown = function(event){
             
-                if (easternprovinces[guessEast] == 'nyagatare'){
+                if (easternprovinces[district] == 'nyagatare'){
                     counter = counter + 100;
                     score.content = counter;
                     score.visible = true;
@@ -203,7 +203,7 @@
         
            gatsibopath.onMouseDown = function(event){
             
-                if (easternprovinces[guessEast] == 'gatsibo'){
+                if (easternprovinces[district] == 'gatsibo'){
                     counter = counter + 100;
                     score.content = counter;
                     score.visible = true;
@@ -251,7 +251,7 @@
         
         kayonzapath.onMouseDown = function(event){
             
-            if (easternprovinces[guessEast] == 'kayonza'){
+            if (easternprovinces[district] == 'kayonza'){
                 counter = counter + 100;
                 score.content = counter;
                 score.visible = true;
@@ -300,7 +300,7 @@
             
             rwamaganapath.onMouseDown = function(event){
             
-                if (easternprovinces[guessEast] == 'rwamagana'){
+                if (easternprovinces[district] == 'rwamagana'){
                     counter = counter + 100;
                     score.content = counter;
                     score.visible = true;
@@ -346,7 +346,7 @@
  
             bugeserapath.onMouseDown = function(event){
             
-                if (easternprovinces[guessEast] == 'bugesera'){
+                if (easternprovinces[district] == 'bugesera'){
                     counter = counter + 100;
                     score.content = counter;
                     score.visible = true;
@@ -393,7 +393,7 @@
             
             ngomapath.onMouseDown = function(event){
             
-            if (easternprovinces[guessEast] == 'ngoma'){
+            if (easternprovinces[district] == 'ngoma'){
                 counter = counter + 100;
                 score.content = counter;
                 score.visible = true;
@@ -440,7 +440,7 @@
         
             kirehepath.onMouseDown = function(event){
             
-            if (easternprovinces[guessEast] == 'kirehe'){
+            if (easternprovinces[district] == 'kirehe'){
                 counter = counter + 100;
                 score.content = counter;
                 score.visible = true;
