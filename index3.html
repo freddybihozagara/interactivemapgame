@@ -102,6 +102,18 @@
             score.content = counter + j;
             score.visible = true;
             }
+            
+        var scoreUp = function(){
+            counter = counter + 100;
+            score.content = counter;
+            score.visible = true;
+        }
+        
+        var scoreDown = function(){
+            counter = counter - 100;
+            score.content = counter;
+            score.visible = true;
+        }
         
         //---
         
@@ -124,14 +136,9 @@
             nyagatarepath.onMouseDown = function(event){
             
                 if (easternprovinces[district] == 'nyagatare'){
-                    counter = counter + 100;
-                    score.content = counter;
-                    score.visible = true;
+                        scoreUp();
                     } else{
-                    counter = counter - 100;
-                    score.content = counter;
-                    score.visible = true;
-                    
+                        scoreDown();
                     }
                 }
                 
@@ -177,14 +184,9 @@
             gatsibopath.onMouseDown = function(event){
             
                 if (easternprovinces[district] == 'gatsibo'){
-                    counter = counter + 100;
-                    score.content = counter;
-                    score.visible = true;
+                        scoreUp();
                     }else{
-                    counter = counter - 100;
-                    score.content = counter;
-                    score.visible = true;
-                    
+                        scoreDown();
                     }
                 }
             
@@ -225,14 +227,9 @@
         kayonzapath.onMouseDown = function(event){
             
             if (easternprovinces[district] == 'kayonza'){
-                counter = counter + 100;
-                score.content = counter;
-                score.visible = true;
+                    scoreUp();
                 }else{
-                    counter = counter - 100;
-                    score.content = counter;
-                    score.visible = true;
-                    
+                    scoreDown();
                     }
             }
         
@@ -271,14 +268,9 @@
             rwamaganapath.onMouseDown = function(event){
             
                 if (easternprovinces[district] == 'rwamagana'){
-                    counter = counter + 100;
-                    score.content = counter;
-                    score.visible = true;
+                        scoreUp();
                     }else{
-                    counter = counter - 100;
-                    score.content = counter;
-                    score.visible = true;
-                    
+                        scoreDown(); 
                     }
                 }
                 
@@ -318,14 +310,9 @@
             bugeserapath.onMouseDown = function(event){
             
                 if (easternprovinces[district] == 'bugesera'){
-                    counter = counter + 100;
-                    score.content = counter;
-                    score.visible = true;
+                        scoreUp();
                     }else{
-                    counter = counter - 100;
-                    score.content = counter;
-                    score.visible = true;
-                    
+                        scoreDown();
                     }
                 }
      
@@ -363,14 +350,9 @@
             ngomapath.onMouseDown = function(event){
             
             if (easternprovinces[district] == 'ngoma'){
-                counter = counter + 100;
-                score.content = counter;
-                score.visible = true;
+                    scoreUp();
                 }else{
-                    counter = counter - 100;
-                    score.content = counter;
-                    score.visible = true;
-                    
+                    scoreDown();
                     }
             }
             
@@ -408,14 +390,9 @@
             kirehepath.onMouseDown = function(event){
             
             if (easternprovinces[district] == 'kirehe'){
-                counter = counter + 100;
-                score.content = counter;
-                score.visible = true;
+                    scoreUp();
                 }else{
-                    counter = counter - 100;
-                    score.content = counter;
-                    score.visible = true;
-                    
+                    scoreDown();
                     }
             }
         
