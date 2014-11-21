@@ -5,12 +5,7 @@
     <title>Interactive Map</title>
     <script type="text/javascript" src="paper.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
-               
-        
-        
-        
-        
-        
+                   
         var easternprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe'];
         var sixRounds = Math.random()*6;
         var district = Math.round(sixRounds);
@@ -19,12 +14,9 @@
             heading.content = 'Wildcard';
             heading.fillColor = 'black';
 
-        
         var Question = new PointText(new Point(400, 130));
             Question.content = 'Where is ' + easternprovinces[district]+ ' located?';
             Question.fillColor = 'black';
-        
-        
         
         var refreshBtnPath = new Path();
             refreshBtnPath.fillColor = '#6767B2';
@@ -52,8 +44,7 @@
             
         var ArrowSouth = ArrowNorth.clone();
             ArrowSouth.position = new Point(630, 515);
-            ArrowSouth.rotate(180);
-            
+            ArrowSouth.rotate(180);  
         
         var North = new PointText(new Point(625, 80));
             North.content = 'N';
@@ -79,7 +70,6 @@
             West.strokeWeight = 'Bold';
             West.fontSize = 20;
         
-        
         var tryAgain = new PointText(new Point(420, 170));
             tryAgain.content = 'Try again';
             tryAgain.fillColor = '#0C0707';
@@ -101,10 +91,7 @@
     
             score.content = counter + j;
             score.visible = true;
-            
             }
-            
-        
                     
         refreshBtnPath.onMouseDown = function(event){
             sixRounds = Math.random()*6;
@@ -112,17 +99,11 @@
             Question.content = 'Where is ' + easternprovinces[district]+ ' located';
             Question.visible = true;
             
-            
             score.content = counter + j;
             score.visible = true;
             }
-            
         
-        
-            
-      
-        
-        //--------------------------------
+        //---
         
         var nyagatarepath = new Path();
             nyagatarepath.strokeColor = 'blue';
@@ -159,17 +140,13 @@
             text.fontWeight = 'bold';
             text.fontSize = 30;
         
-        
         nyagatarepath.onMouseEnter = function(event) { 
             text.content = 'nyagatare';       
             text.visible = true;
             }
-    
         nyagatarepath.onMouseLeave = function(event) {
             text.visible = false;
             }
-    
-      
   
         var nyagatarecircle = new Path.Circle({
             center: [780, 150],
@@ -177,7 +154,7 @@
             fillColor: 'red'
             });
         
-        //--------------------------------
+        //---
         
         var gatsibopath = new Path();
             gatsibopath.strokeColor = 'blue';
@@ -197,7 +174,7 @@
             
             gatsibopath.smooth();
         
-           gatsibopath.onMouseDown = function(event){
+            gatsibopath.onMouseDown = function(event){
             
                 if (easternprovinces[district] == 'gatsibo'){
                     counter = counter + 100;
@@ -228,8 +205,8 @@
             text.visible = false;
             }
         
+        //---
         
-        //----------------------------
         var kayonzapath = new Path();
         kayonzapath.strokeColor = 'blue';
         kayonzapath.fillColor = '#156013';
@@ -259,7 +236,6 @@
                     }
             }
         
-        
         var kayonzacircle = new Path.Circle({
         center: [945, 292],
         radius: 3,
@@ -275,8 +251,8 @@
             text.visible = false;
             }
         
+        //---
         
-        //----------------------------
         var rwamaganapath = new Path();
             rwamaganapath.strokeColor = 'blue';
             rwamaganapath.fillColor = '#8A8C23';
@@ -291,8 +267,6 @@
             rwamaganapath.closed = true;
             rwamaganapath.fullySelected = true;
             rwamaganapath.smooth();
-            
-            
             
             rwamaganapath.onMouseDown = function(event){
             
@@ -323,7 +297,8 @@
             text.visible = false;
             }
         
-        //----------------------------
+        //---
+        
         var bugeserapath = new Path();
             bugeserapath.strokeColor = 'blue';
             bugeserapath.fillColor = '#1C4427';
@@ -354,8 +329,6 @@
                     }
                 }
      
- 
-            
         var bugeseracircle = new Path.Circle({
             center: [665, 398],
             radius: 3,
@@ -371,7 +344,8 @@
             text.visible = false;
             }
         
-        //----------------------------
+        //---
+        
         var ngomapath = new Path();
             ngomapath.strokeColor = 'blue';
             ngomapath.fillColor = '#35632D';
@@ -386,7 +360,6 @@
             ngomapath.fullySelected = true;
             ngomapath.smooth();
             
-            
             ngomapath.onMouseDown = function(event){
             
             if (easternprovinces[district] == 'ngoma'){
@@ -400,7 +373,6 @@
                     
                     }
             }
-            
             
         var ngomacircle = new Path.Circle({
             center: [840, 473],
@@ -417,8 +389,8 @@
             text.visible = false;
             }
         
+        //---
         
-        //----------------------------
         var kirehepath = new Path();
             kirehepath.strokeColor = 'blue';
             kirehepath.fillColor = '#113D16';
@@ -432,7 +404,6 @@
             kirehepath.closed = true;
             kirehepath.fullySelected = true;
             kirehepath.smooth();
-        
         
             kirehepath.onMouseDown = function(event){
             
@@ -454,7 +425,6 @@
             fillColor: 'red'
             });
         
-        
         kirehepath.onMouseEnter = function(event) { 
             text.content = 'kirehe';       
             text.visible = true;
@@ -467,8 +437,6 @@
         
     </script>
 </head>
-
-
 <body>
     <canvas id="myCanvas" resize style="background-color: #9DB299"></canvas>            
     <!-- Insert your content here -->
