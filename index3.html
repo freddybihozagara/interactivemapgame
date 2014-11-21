@@ -8,25 +8,21 @@
                
         
         
-     
         
-        //--------------------------------
         
         
         var easternprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe'];
         var sixRounds = Math.random()*6;
         var district = Math.round(sixRounds);
         
-        var quizText = new PointText(new Point(400, 100));
-            quizText.content = 'Wildcard';
-            quizText.fillColor = 'black';
+        var heading = new PointText(new Point(400, 100));
+            heading.content = 'Wildcard';
+            heading.fillColor = 'black';
+
         
-        var questionText = new PointText(new Point(400, 110));
-            questionText.fillColor = 'black';
-        
-        var guessQuestion = new PointText(new Point(400, 130));
-            guessQuestion.content = 'Where is ' + easternprovinces[district]+ ' located?';
-            guessQuestion.fillColor = 'black';
+        var Question = new PointText(new Point(400, 130));
+            Question.content = 'Where is ' + easternprovinces[district]+ ' located?';
+            Question.fillColor = 'black';
         
         
         
@@ -100,8 +96,8 @@
         tryAgain.onMouseDown = function(event){
             sixRounds = Math.random()*6;
             district = Math.round(sixRounds);
-            guessQuestion.content = 'Where is ' + easternprovinces[district]+ ' located';
-            guessQuestion.visible = true;
+            Question.content = 'Where is ' + easternprovinces[district]+ ' located';
+            Question.visible = true;
     
             score.content = counter + j;
             score.visible = true;
@@ -113,8 +109,8 @@
         refreshBtnPath.onMouseDown = function(event){
             sixRounds = Math.random()*6;
             district = Math.round(sixRounds);
-            guessQuestion.content = 'Where is ' + easternprovinces[district]+ ' located';
-            guessQuestion.visible = true;
+            Question.content = 'Where is ' + easternprovinces[district]+ ' located';
+            Question.visible = true;
             
             
             score.content = counter + j;
