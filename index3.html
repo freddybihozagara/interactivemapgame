@@ -5,7 +5,7 @@
     <title>Interactive Map</title>
     <script type="text/javascript" src="paper.js"></script>
     <script type="text/paperscript" canvas="canvas">
-                   
+               
         var easternprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe'];
         var sixRounds = Math.random()*6;
         var district = Math.round(sixRounds);
@@ -18,13 +18,13 @@
             Question.content = 'Where is ' + easternprovinces[district]+ ' located?';
             Question.fillColor = 'black';
         
-        var refreshBtnPath = new Path();
-            refreshBtnPath.fillColor = '#6767B2';
-            refreshBtnPath.add(new Point(400, 150));
-            refreshBtnPath.add(new Point(500, 150));
-            refreshBtnPath.add(new Point(500, 180));
-            refreshBtnPath.add(new Point(400, 180));
-            refreshBtnPath.closed = true;
+        var refreshBtn = new Path();
+            refreshBtn.fillColor = '#6767B2';
+            refreshBtn.add(new Point(400, 150));
+            refreshBtn.add(new Point(500, 150));
+            refreshBtn.add(new Point(500, 180));
+            refreshBtn.add(new Point(400, 180));
+            refreshBtn.closed = true;
             
         var ArrowNorth = new Path();
             ArrowNorth.fillColor = 'black';
@@ -70,35 +70,34 @@
             West.strokeWeight = 'Bold';
             West.fontSize = 20;
         
-        var tryAgain = new PointText(new Point(420, 170));
-            tryAgain.content = 'Try again';
-            tryAgain.fillColor = '#0C0707';
-            tryAgain.strokeWeight = 'Bold';
+        var btnTxt = new PointText(new Point(420, 170));
+            btnTxt.content = 'Try again';
+            btnTxt.fillColor = '#0C0707';
+            btnTxt.strokeWeight = 'Bold';
         
         var j = 0;
         var counter = 0; 
-        
+            var x1 = 1; var y1 = 1;
+            var x2 = 1; var y2 = 1;   
         var score = new PointText(new Point(400, 200));
                 score.content = j;
                 score.fillColor = '#0C0707';
                 score.strokeWeight = 'Bold';
         
-        tryAgain.onMouseDown = function(event){
+        btnTxt.onMouseDown = function(event){
             sixRounds = Math.random()*6;
             district = Math.round(sixRounds);
             Question.content = 'Where is ' + easternprovinces[district]+ ' located';
             Question.visible = true;
-    
             score.content = counter + j;
             score.visible = true;
             }
                     
-        refreshBtnPath.onMouseDown = function(event){
+        refreshBtn.onMouseDown = function(event){
             sixRounds = Math.random()*6;
             district = Math.round(sixRounds);
             Question.content = 'Where is ' + easternprovinces[district]+ ' located';
             Question.visible = true;
-            
             score.content = counter + j;
             score.visible = true;
             }
@@ -114,8 +113,7 @@
             score.content = counter;
             score.visible = true;
         }
-            var x1 = 1; var y1 = 1;
-            var x2 = 1; var y2 = 1;
+
         //---
         
         var nyagatarepath = new Path();
