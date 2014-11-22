@@ -13,7 +13,7 @@
         var heading = new PointText(new Point(400, 100));
             heading.content = 'Wildcard';
             heading.fillColor = 'black';
-
+            
         var Question = new PointText(new Point(400, 130));
             Question.content = 'Where is ' + easternprovinces[district]+ ' located?';
             Question.fillColor = 'black';
@@ -34,13 +34,13 @@
             ArrowNorth.add(new Point(632, 105));
             ArrowNorth.closed = true;
             
-        var ArrowWest = ArrowNorth.clone();
-            ArrowWest.position = new Point(1030, 295);
-            ArrowWest.rotate(90);
-            
         var ArrowEast = ArrowNorth.clone();
-            ArrowEast.position = new Point(230, 295);
-            ArrowEast.rotate(270);
+            ArrowEast.position = new Point(1030, 293);
+            ArrowEast.rotate(90);
+            
+        var ArrowWest = ArrowNorth.clone();
+            ArrowWest.position = new Point(235, 293);
+            ArrowWest.rotate(270);
             
         var ArrowSouth = ArrowNorth.clone();
             ArrowSouth.position = new Point(630, 515);
@@ -114,6 +114,8 @@
             score.content = counter;
             score.visible = true;
         }
+            var x1 = 1; var y1 = 1;
+            var x2 = 1; var y2 = 1;
         //---
         
         var nyagatarepath = new Path();
@@ -146,11 +148,15 @@
             text.fontSize = 30;
         
         nyagatarepath.onMouseEnter = function(event) { 
+            x1 = 1; y1 = 1; 
             text.content = 'nyagatare';       
             text.visible = true;
+            nyagatarepath.scale(x1+0.05, y1+0.05);
             }
         nyagatarepath.onMouseLeave = function(event) {
+            x2 = 1; y2 = 1;
             text.visible = false;
+            nyagatarepath.scale(x2-0.05, y2-0.05);
             }
   
         var nyagatarecircle = new Path.Circle({
@@ -159,7 +165,7 @@
             fillColor: 'red'
             });
         //---
-        
+
         var gatsibopath = new Path();
             gatsibopath.strokeColor = 'blue';
             gatsibopath.fillColor = '#205E25';
@@ -191,16 +197,20 @@
             fillColor: 'red'
             });
         
-        gatsibopath.onMouseEnter = function(event) { 
+        gatsibopath.onMouseEnter = function(event) {
+            x1 = 1; y1 = 1;
             text.content = 'gatsibo';       
             text.visible = true;
+            gatsibopath.scale(x1+0.05, y1+0.05);
             }
     
         gatsibopath.onMouseLeave = function(event) {
+            x2 = 1; y2 = 1;
             text.visible = false;
+            gatsibopath.scale(x2-0.05, y2-0.05);
             }
         //---
-        
+
         var kayonzapath = new Path();
         kayonzapath.strokeColor = 'blue';
         kayonzapath.fillColor = '#156013';
@@ -230,16 +240,20 @@
         fillColor: 'red'
             });
         
-        kayonzapath.onMouseEnter = function(event) { 
+        kayonzapath.onMouseEnter = function(event) {
+            x1 = 1; y1 = 1;
             text.content = 'kayonza';       
             text.visible = true;
+            kayonzapath.scale(x1+0.05, y1+0.05);
             }
     
         kayonzapath.onMouseLeave = function(event) {
+            x2 = 1; y2 = 1;
             text.visible = false;
+            kayonzapath.scale(x2-0.05, y2-0.05);
             }
         //---
-        
+
         var rwamaganapath = new Path();
             rwamaganapath.strokeColor = 'blue';
             rwamaganapath.fillColor = '#8A8C23';
@@ -269,16 +283,20 @@
             fillColor: 'red'
             });
         
-        rwamaganapath.onMouseEnter = function(event) { 
+        rwamaganapath.onMouseEnter = function(event) {
+            x1 = 1; y1 = 1;
             text.content = 'rwamagana';       
             text.visible = true;
+            rwamaganapath.scale(x1+0.05, y1+0.05);
             }
     
         rwamaganapath.onMouseLeave = function(event) {
+            x2 = 1; y2 = 1;
             text.visible = false;
+            rwamaganapath.scale(x2-0.05, y2-0.05);
             }
         //---
-        
+
         var bugeserapath = new Path();
             bugeserapath.strokeColor = 'blue';
             bugeserapath.fillColor = '#1C4427';
@@ -309,13 +327,17 @@
             fillColor: 'red'
             });
         
-        bugeserapath.onMouseEnter = function(event) { 
+        bugeserapath.onMouseEnter = function(event) {
+            x = 1; y = 1;
             text.content = 'bugesera';       
             text.visible = true;
+            bugeserapath.scale(x1+0.05, y1+0.05);
             }
     
         bugeserapath.onMouseLeave = function(event) {
+            x2 = 1; y2 = 1;
             text.visible = false;
+            bugeserapath.scale(x2-0.05, y2-0.05);
             }
         //---
         
@@ -347,13 +369,17 @@
             fillColor: 'red'
             });
         
-        ngomapath.onMouseEnter = function(event) { 
+        ngomapath.onMouseEnter = function(event) {
+            x1 = 1; y1 = 1;
             text.content = 'ngoma';       
             text.visible = true;
+            ngomapath.scale(x1+0.05, y1+0.05);
             }
     
         ngomapath.onMouseLeave = function(event) {
+            x2 = 1; y2 = 1;
             text.visible = false;
+            ngomapath.scale(x2-0.05, y2-0.05);
             }
         //---
         
@@ -385,13 +411,17 @@
             fillColor: 'red'
             });
         
-        kirehepath.onMouseEnter = function(event) { 
+        kirehepath.onMouseEnter = function(event) {
+            x1 = 1; y1 = 1;
             text.content = 'kirehe';       
             text.visible = true;
+            kirehepath.scale(x1+0.05, y1+0.05);
             }
     
         kirehepath.onMouseLeave = function(event) {
+            x2 = 1; y2 = 1;
             text.visible = false;
+            kirehepath.scale(x2-0.05, y2-0.05);
             }
             
     </script>
