@@ -5,19 +5,27 @@
     <title>Interactive Map</title>
     <script type="text/javascript" src="paper.js"></script>
     <script type="text/paperscript" canvas="canvas">
+        
+        
                
         var easternprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe'];
-        var sixRounds = Math.random()*6;
-        var district = Math.round(sixRounds);
+        var sixRounds; // = Math.random()*6;
+        var district; // = Math.round(sixRounds);
         
         var heading = new PointText(new Point(400, 100));
             heading.content = 'Wildcard';
             heading.fillColor = 'black';
-            
+        
         var Question = new PointText(new Point(400, 130));
-            Question.content = 'Where is ' + easternprovinces[district]+ ' located?';
             Question.fillColor = 'black';
         
+        setInterval(function (){
+            sixRounds = Math.random()*6;
+            district = Math.round(sixRounds);
+            Question.content = 'Where is ' + easternprovinces[district] + ' located';
+            Question.visible = true;
+            }, 1500);
+            
         var refreshBtn = new Path();
             refreshBtn.fillColor = '#6767B2';
             refreshBtn.add(new Point(400, 150));
@@ -93,12 +101,7 @@
             }
                     
         refreshBtn.onMouseDown = function(event){
-            sixRounds = Math.random()*6;
-            district = Math.round(sixRounds);
-            Question.content = 'Where is ' + easternprovinces[district]+ ' located';
-            Question.visible = true;
-            score.content = counter + j;
-            score.visible = true;
+          //uri.reload();
             }
             
         var scoreUp = function(){
