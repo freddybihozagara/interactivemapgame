@@ -92,11 +92,11 @@
             btnTxt.fillColor = '#0C0707';
             btnTxt.strokeWeight = 'Bold';
         
-        var j = 0; var x1 = 1; var y1 = 1; var x2 = 1; var y2 = 1; 
-        var counter = 0; 
+        var i = 0; var j = 0; var h = 0; var k = 0; var x1 = 1; var y1 = 1; var x2 = 1; var y2 = 1; 
+        var counters = 0; var counter = 0; 
                  
         var score = new PointText(new Point(400, 200));
-                score.content = j;
+                score.content = 'score: ' + j;
                 score.fillColor = '#0C0707';
                 score.strokeWeight = 'Bold';
         
@@ -110,18 +110,33 @@
             }
                     
         refreshBtn.onMouseDown = function(event){
-          //uri.reload();
+            //uri.reload();
             }
             
+        var highest = new PointText(new Point(400, 220));
+            highest.strokeColor = 'black';
+            highest.content = 'highest score: ' + i;
+        
         var scoreUp = function(){
             counter = counter + 100;
-            score.content = counter;
+            score.content = 'score: ' + counter;
             score.visible = true;
-        }
+            counters = counter;
+            if (counters >= k){
+                k = counters;
+            }
+            i = counters;
+            if(i < k && i >= h){
+                highest.content = 'highest score: ' + k;
+            } else {
+                highest.content = 'highest score: ' + k; 
+                }
+            }
         
         var scoreDown = function(){
             counter = counter - 100;
-            score.content = counter;
+            h = counter;
+            score.content = 'score: ' + counter;
             score.visible = true;
         }
         //---
