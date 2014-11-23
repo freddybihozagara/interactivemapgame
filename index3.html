@@ -42,6 +42,9 @@
             refreshBtn.add(new Point(500, 180));
             refreshBtn.add(new Point(400, 180));
             refreshBtn.closed = true;
+            refreshBtn.onClick = function(event){
+                window.location.reload();
+            }
             
         var ArrowNorth = new Path();
             ArrowNorth.fillColor = 'black';
@@ -107,6 +110,7 @@
             Question.visible = true;
             score.content = counter + j;
             score.visible = true;
+            window.location.reload();
             }
                     
         refreshBtn.onMouseDown = function(event){
