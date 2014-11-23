@@ -6,11 +6,10 @@
     <script type="text/javascript" src="paper.js"></script>
     <script type="text/paperscript" canvas="canvas">
         
-        
-               
+             
         var easternprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe'];
-        var sixRounds; // = Math.random()*6;
-        var district; // = Math.round(sixRounds);
+        var sixRounds;
+        var district;
         
         var heading = new PointText(new Point(400, 100));
             heading.content = 'Wildcard';
@@ -19,11 +18,20 @@
         var Question = new PointText(new Point(400, 130));
             Question.fillColor = 'black';
         
+           var compass = new Path();
+            compass.strokeColor = '#EFF704';
+            compass.fillColor = '#E84A06';
+            compass.add(new Point(370, 120));
+            compass.add(new Point(380, 120));
+            compass.add(new Point(375, 130));
+            compass.closed = true;
+        
         setInterval(function (){
             sixRounds = Math.random()*6;
             district = Math.round(sixRounds);
             Question.content = 'Where is ' + easternprovinces[district] + ' located';
             Question.visible = true;
+            compass.rotate(90);
             }, 1500);
             
         var refreshBtn = new Path();
