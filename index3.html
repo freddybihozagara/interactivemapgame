@@ -17,7 +17,7 @@
         
         var Question = new PointText(new Point(400, 130));
             Question.fillColor = 'black';
-            Question.content = 'Where is ' + easternprovinces[district] + ' located';
+            Question.content = 'Where is ' + easternprovinces[district] + ' located?';
         
            var compass = new Path();
             compass.strokeColor = '#EFF704';
@@ -30,7 +30,7 @@
         setInterval(function (){
             sixRounds = Math.random()*6;
             district = Math.round(sixRounds);
-            Question.content = 'Where is ' + easternprovinces[district] + ' located';
+            Question.content = 'Where is ' + easternprovinces[district] + ' located?';
             Question.visible = true;
             compass.rotate(90);
             }, 1500);
@@ -106,7 +106,7 @@
         btnTxt.onMouseDown = function(event){
             sixRounds = Math.random()*6;
             district = Math.round(sixRounds);
-            Question.content = 'Where is ' + easternprovinces[district]+ ' located';
+            Question.content = 'Where is ' + easternprovinces[district]+ ' located?';
             Question.visible = true;
             score.content = counter + j;
             score.visible = true;
