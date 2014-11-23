@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="en">    
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
     <title>Interactive Map</title>
     <script type="text/javascript" src="paper.js"></script>
@@ -95,7 +95,7 @@
         var i = 0; var j = 0; var h = 0; var k = 0; var x1 = 1; var y1 = 1; var x2 = 1; var y2 = 1; 
         var counters = 0; var counter = 0; 
                  
-        var score = new PointText(new Point(400, 200));
+        var score = new PointText(new Point(400, 210));
                 score.content = 'score: ' + j;
                 score.fillColor = '#0C0707';
                 score.strokeWeight = 'Bold';
@@ -112,8 +112,8 @@
         refreshBtn.onMouseDown = function(event){
             //uri.reload();
             }
-            
-        var highest = new PointText(new Point(400, 220));
+                
+        var highest = new PointText(new Point(400, 240));
             highest.strokeColor = 'black';
             highest.content = 'highest score: ' + i;
         
@@ -126,7 +126,7 @@
                 k = counters;
             }
             i = counters;
-            if(i < k && i >= h){
+            if((i < k) && (i >= h)){
                 highest.content = 'highest score: ' + k;
             } else {
                 highest.content = 'highest score: ' + k; 
