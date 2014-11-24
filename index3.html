@@ -174,15 +174,22 @@
             text.fontWeight = 'bold';
             text.fontSize = 30;
         
+        var nyagatareinfo = new PointText(new Point(40, 340));
+            nyagatareinfo.strokeColor = 'black';
+            nyagatareinfo.fontSize = 12;
+        
         nyagatarepath.onMouseEnter = function(event) { 
             x1 = 1; y1 = 1; 
             text.content = 'nyagatare';       
             text.visible = true;
+            nyagatareinfo.content = 'The District of Nyagatare is one of the seven districts \nmaking the Eastern Province. It is divided into \n14 Sectors made of 106 cells and 630 Villages Imidugudu. \nSpreading an area of 1.741 Km2, the district borders with \nUganda at the north, Tanzania at its East, at the South by \nGasabo District and by Gicumbi District on the Western\n border. (source: nyagatare.gov.rw)';
+            nyagatareinfo.visible = true;
             nyagatarepath.scale(x1+0.05, y1+0.05);
             }
         nyagatarepath.onMouseLeave = function(event) {
             x2 = 1; y2 = 1;
             text.visible = false;
+            nyagatareinfo.visible = false;
             nyagatarepath.scale(x2-0.05, y2-0.05);
             }
   
@@ -223,17 +230,24 @@
             radius: 3,
             fillColor: 'red'
             });
+            
+        var gatsiboinfo = new PointText(new Point(40, 340));
+            gatsiboinfo.strokeColor = 'black';
+            gatsiboinfo.fontSize = 12;
         
         gatsibopath.onMouseEnter = function(event) {
             x1 = 1; y1 = 1;
             text.content = 'gatsibo';       
             text.visible = true;
+            gatsiboinfo.content = 'The District of Gatsibo is composed from 14 Sectors\nto knowledge Gasange, Gatsibo, Gitoki, Kabarore,\nKageyo, Kiramuruzi, Kiziguro, Muhura, Murambi,\nNgarama, Nyagihanga, Remera, Rugarama and Rwimbogo.\nIt has 69 cells and 603 villages (Imidugudu).\nGatsibo is delimited to the East by the National\nPark of the Akagera; to the North by the District of\nNyagatare; to the West by the District of Gicumbi,\nto the South by the Districts of Rwamagana and\n Kayonza. (source: gatsibo.gov.rw)';
+            gatsiboinfo.visible = true;
             gatsibopath.scale(x1+0.05, y1+0.05);
             }
     
         gatsibopath.onMouseLeave = function(event) {
             x2 = 1; y2 = 1;
             text.visible = false;
+            gatsiboinfo.visible = false;
             gatsibopath.scale(x2-0.05, y2-0.05);
             }
         //---
