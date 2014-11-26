@@ -114,6 +114,14 @@
             arg.scale(x2-0.05, y2-0.05);
         }
             
+        var vintagePoint = function(args1, args2){
+        var vintageCircle = new Path.Circle({
+        center: [args1, args2],
+        radius: 3,
+        fillColor: 'red'
+        });
+        }
+        
         var score = new PointText(new Point(400, 210));
             score.content = 'score: ' + j;
             score.fillColor = '#0C0707';
@@ -205,12 +213,9 @@
             nyagatareinfo.visible = false;
             scaleDown(nyagatarepath);
             }
-  
-        var nyagatarecircle = new Path.Circle({
-            center: [780, 150],
-            radius: 3,
-            fillColor: 'red'
-            });
+        
+            vintagePoint(780, 150);
+       
         //---
 
         var gatsibopath = new Path();
@@ -237,12 +242,6 @@
                         scoreDown();
                     }
                 }
-        
-        var gatsibocircle = new Path.Circle({
-            center: [916, 218],
-            radius: 3,
-            fillColor: 'red'
-            });
             
         var gatsiboinfo = new PointText(new Point(40, 340));
             gatsiboinfo.strokeColor = 'black';
@@ -263,6 +262,9 @@
             gatsiboinfo.visible = false;
             scaleDown(gatsibopath);
             }
+            
+            vintagePoint(916, 218);
+            
         //---
 
         var kayonzapath = new Path();
@@ -288,12 +290,6 @@
                     }
             }
         
-        var kayonzacircle = new Path.Circle({
-        center: [945, 292],
-        radius: 3,
-        fillColor: 'red'
-            });
-        
         var kayonzainfo = new PointText(new Point(40, 340));
             kayonzainfo.strokeColor = 'black';
             kayonzainfo.fontSize = 12;
@@ -313,6 +309,9 @@
             kayonzainfo.visible = false;
             scaleDown(kayonzapath);
             }
+            
+            vintagePoint(945, 292);            
+            
         //---
 
         var rwamaganapath = new Path();
@@ -337,12 +336,6 @@
                         scoreDown(); 
                     }
                 }
-                
-        var rwamaganacircle = new Path.Circle({
-            center: [728, 320],
-            radius: 3,
-            fillColor: 'red'
-            });
             
         var rwamaganainfo = new PointText(new Point(40, 340));
             rwamaganainfo.strokeColor = 'black';
@@ -363,6 +356,9 @@
             rwamaganainfo.visible = false;
             scaleDown(rwamaganapath);
             }
+            
+            vintagePoint(728, 320);
+            
         //---
 
         var bugeserapath = new Path();
@@ -388,12 +384,6 @@
                         scoreDown();
                     }
                 }
-     
-        var bugeseracircle = new Path.Circle({
-            center: [665, 398],
-            radius: 3,
-            fillColor: 'red'
-            });
             
         var bugeserainfo = new PointText(new Point(40, 340));
             bugeserainfo.strokeColor = 'black';
@@ -415,6 +405,9 @@
             scaleDown(bugeserapath);
             
             }
+            
+            vintagePoint(665, 398);
+            
         //---
         
         var ngomapath = new Path();
@@ -439,12 +432,6 @@
                     }
             }
             
-        var ngomacircle = new Path.Circle({
-            center: [840, 473],
-            radius: 3,
-            fillColor: 'red'
-            });
-            
         var ngomainfo = new PointText(new Point(40, 340));
             ngomainfo.strokeColor = 'black';
             ngomainfo.fontSize = 12;
@@ -464,6 +451,9 @@
             ngomainfo.visible = false;
             scaleDown(ngomapath);
             }
+            
+            vintagePoint(840, 473);
+            
         //---
         
         var kirehepath = new Path();
@@ -487,12 +477,6 @@
                         scoreDown();
                     }
             }
-        
-        var kirehecircle = new Path.Circle({
-            center: [957, 365],
-            radius: 3,
-            fillColor: 'red'
-            });
             
         var kireheinfo = new PointText(new Point(40, 340));
             kireheinfo.strokeColor = 'black';
@@ -513,6 +497,9 @@
             kireheinfo.visible = false;
             scaleDown(kirehepath);
             }
+            
+            vintagePoint(957, 365);
+            
             
     </script>
 </head>
