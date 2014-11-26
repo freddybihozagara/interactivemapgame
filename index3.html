@@ -102,7 +102,19 @@
             btnTxt.strokeWeight = 'Bold';
         
         var i = 0; var j = 0; var h = 0; var k = 0; var x1 = 1; var y1 = 1; var x2 = 1; var y2 = 1; 
-        var counters = 0; var counter = 0; 
+        var counters = 0; var counter = 0;
+        
+        var scaleUp = function(arg){
+          x1 = 1; y1 = 1; 
+         arg.scale(x1+0.05, y1+0.05);
+        }
+        
+        var scaleDown = function(arg){
+          x2 = 1; y2 = 1;
+          arg.scale(x2-0.05, y2-0.05);
+        }
+        
+        
                  
         var score = new PointText(new Point(400, 210));
                 score.content = 'score: ' + j;
@@ -190,14 +202,14 @@
             text.visible = true;
             nyagatareinfo.content = 'The District of Nyagatare is one of the seven districts \nmaking the Eastern Province. It is divided into 14 Sectors \nmade of 106 cells and 630 Villages Imidugudu: Gatunda, \nKiyombe,  Karama,  Karangazi,  Katabagemu,  Matimba, \nMimuli, Mukama, Musheli, Nyagatare, Rukomo, Rwempasha, \nRwimiyaga and Tabagwe. (source: wikipedia)';
             nyagatareinfo.visible = true;
-            nyagatarepath.scale(x1+0.05, y1+0.05);
+            scaleUp(nyagatarepath);
             }
             
         nyagatarepath.onMouseLeave = function(event) {
             x2 = 1; y2 = 1;
             text.visible = false;
             nyagatareinfo.visible = false;
-            nyagatarepath.scale(x2-0.05, y2-0.05);
+            scaleDown(nyagatarepath);
             }
   
         var nyagatarecircle = new Path.Circle({
@@ -248,14 +260,14 @@
             text.visible = true;
             gatsiboinfo.content = 'The District of Gatsibo is composed from 14 Sectors\nto knowledge Gasange, Gatsibo, Gitoki, Kabarore,\nKageyo, Kiramuruzi, Kiziguro, Muhura, Murambi,\nNgarama,  Nyagihanga,  Remera,  Rugarama  and\n Rwimbogo. It has 69 cells and 603 villages (Imidugudu).\nGatsibo  is  delimited  to  the  East  by  the  National\nPark of the Akagera; to the North by the District of\nNyagatare; to the West by the District of Gicumbi,\nto the South by the Districts of Rwamagana and\n Kayonza. (source: wikipedia)';
             gatsiboinfo.visible = true;
-            gatsibopath.scale(x1+0.05, y1+0.05);
+            scaleUp(gatsibopath);
             }
     
         gatsibopath.onMouseLeave = function(event) {
             x2 = 1; y2 = 1;
             text.visible = false;
             gatsiboinfo.visible = false;
-            gatsibopath.scale(x2-0.05, y2-0.05);
+            scaleDown(gatsibopath);
             }
         //---
 
@@ -298,14 +310,14 @@
             text.visible = true;
             kayonzainfo.content = 'Kayonza is a district (akarere) in Eastern Province,\nRwanda. Its capital is Mukarange. Kayonza district is\n divided into 12 sectors (imirenge): Gahini, Kabare,\nKabarondo, Mukarange, Murama, Murundi, Mwiri, \nNdego, Nyamirama, Rukara, Ruramira and Rwinkwavu.\n (source: wikipedia)';
             kayonzainfo.visible = true;
-            kayonzapath.scale(x1+0.05, y1+0.05);
+            scaleUp(kayonzapath);
             }
     
         kayonzapath.onMouseLeave = function(event) {
             x2 = 1; y2 = 1;
             text.visible = false;
             kayonzainfo.visible = false;
-            kayonzapath.scale(x2-0.05, y2-0.05);
+            scaleDown(kayonzapath);
             }
         //---
 
@@ -348,14 +360,14 @@
             text.visible = true;
             rwamaganainfo.content = 'Rwamagana lies approximately 50 km (31 mi) from Kigali,\nRwamagana district has about 14 sectors including:\nKigabiro, Muyumbu, Nyakariro, Karenge, Nzige, Gahengeri,\nMwurire, Rubona, Gishari, Munyiginya, Muhazi, Gishari,\nMusha and Munyaga. (source: wikipedia)';
             rwamaganainfo.visible = true;
-            rwamaganapath.scale(x1+0.05, y1+0.05);
+            scaleUp(rwamaganapath);
             }
     
         rwamaganapath.onMouseLeave = function(event) {
             x2 = 1; y2 = 1;
             text.visible = false;
             rwamaganainfo.visible = false;
-            rwamaganapath.scale(x2-0.05, y2-0.05);
+            scaleDown(rwamaganapath);
             }
         //---
 
@@ -399,14 +411,15 @@
             text.visible = true;
             bugeserainfo.content = 'Bugesera is a district (akarere) in Eastern Province,\nRwanda. Its capital is Nyamata. Bugesera district is\ndivided into 15 sectors (imirenge): Gashora, Kamabuye,\nJuru,  Ntarama,  Mareba, Mayange, Musenyi, Mwogo,\nNgeruka, Nyamata, Nyarugenge, Rilima, Ruhuha, Rweru\nand Shyara. (source: wikipedia)';
             bugeserainfo.visible = true;
-            bugeserapath.scale(x1+0.05, y1+0.05);
+            scaleUp(bugeserapath);
             }
     
         bugeserapath.onMouseLeave = function(event) {
             x2 = 1; y2 = 1;
             text.visible = false;
             bugeserainfo.visible = false;
-            bugeserapath.scale(x2-0.05, y2-0.05);
+            scaleDown(bugeserapath);
+            
             }
         //---
         
@@ -448,14 +461,14 @@
             text.visible = true;
             ngomainfo.content = 'Ngoma is a district (akarere) in Eastern Province,\nRwanda. Its capital is Kibungo. Ngoma district is\ndivided into 14 sectors (imirenge): Gashanda, Jarama,\nKarembo, Kazo, Kibungo, Mugesera, Murama, Mutenderi,\nRemera, Rukira, Rukumberi, Rurenge, Sake and Zaza. \n(source: wikipedia)';
             ngomainfo.visible = true;
-            ngomapath.scale(x1+0.05, y1+0.05);
+            scaleUp(ngomapath);
             }
     
         ngomapath.onMouseLeave = function(event) {
             x2 = 1; y2 = 1;
             text.visible = false;
             ngomainfo.visible = false;
-            ngomapath.scale(x2-0.05, y2-0.05);
+            scaleDown(ngomapath);
             }
         //---
         
@@ -497,14 +510,14 @@
             text.visible = true;
             kireheinfo.content = 'Kirehe is a district (akarere) in Eastern Province,\nRwanda. Its capital is Kirehe town (which is usually\nknown as Rusumo, being the major settlement of the\nformer Rusumo district). Its most noteworthy feature\nis Rusumo Falls, the waterfall on the Kagera River,\nwhich has been key to Rwandan history.\nKirehe district is divided into 12 sectors(imirenge):\nGahara, Gatore, Kigarama, Kigina, Kirehe, Mahama,\nMpanga, Musaza, Mushikiri, Nasho, Nyamugari, \nNyarubuye. (source: wikipedia)';
             kireheinfo.visible = true;
-            kirehepath.scale(x1+0.05, y1+0.05);
+            scaleUp(kirehepath);
             }
     
         kirehepath.onMouseLeave = function(event) {
             x2 = 1; y2 = 1;
             text.visible = false;
             kireheinfo.visible = false;
-            kirehepath.scale(x2-0.05, y2-0.05);
+            scaleDown(kirehepath);
             }
             
     </script>
