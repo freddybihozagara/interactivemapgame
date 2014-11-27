@@ -85,17 +85,16 @@
             btnTxt.fillColor = '#0C0707';
             btnTxt.strokeWeight = 'Bold';
         
-        var i = 0; var j = 0; var h = 0; var k = 0;
-        var x1 = 1; var y1 = 1; var x2 = 1; var y2 = 1; 
+        var i = 0; var j = 0; var k = 0; var h = 0;
         var counters = 0; var counter = 0;
         
         var scaleUp = function(arg){
-            x1 = 1; y1 = 1; 
+            var x = 1; var y = 1; 
             arg.scale(x1+0.05, y1+0.05);
         }
         
         var scaleDown = function(arg){
-            x2 = 1; y2 = 1;
+            var x = 1; var y = 1;
             arg.scale(x2-0.05, y2-0.05);
         }
         
