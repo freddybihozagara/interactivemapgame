@@ -66,29 +66,13 @@
             ArrowSouth.position = new Point(630, 515);
             ArrowSouth.rotate(180);
             
-        var North = new PointText(new Point(625, 80));
-            North.content = 'N';
-            North.fillColor = '#0C0707';
-            North.strokeWeight = 'Bold';
-            North.fontSize = 20;
-            
-        var South = new PointText(new Point(625, 550));
-            South.content = 'S';
-            South.fillColor = '#0C0707';
-            South.strokeWeight = 'Bold';
-            South.fontSize = 20;
-            
-        var East = new PointText(new Point(1050, 300));
-            East.content = 'E';
-            East.fillColor = '#0C0707';
-            East.strokeWeight = 'Bold';
-            East.fontSize = 20;
-            
-        var West = new PointText(new Point(200, 300));
-            West.content = 'W';
-            West.fillColor = '#0C0707';
-            West.strokeWeight = 'Bold';
-            West.fontSize = 20;
+        var newCompass = function(arg, x, y){
+            var newpoint = new PointText(new Point(x, y));
+                newpoint.content = arg;
+                newpoint.fillColor = '#0C0707';
+                newpoint.strokeWeight = 'Bold';
+                newpoint.fontSize = 20;
+            }
             
         var copyright = new PointText(new Point(540, 600));
             copyright.content = 'Copyright© 2014. Imena Software Ltd.\n        support@imenasoftware.com';
@@ -101,7 +85,8 @@
             btnTxt.fillColor = '#0C0707';
             btnTxt.strokeWeight = 'Bold';
         
-        var i = 0; var j = 0; var h = 0; var k = 0; var x1 = 1; var y1 = 1; var x2 = 1; var y2 = 1; 
+        var i = 0; var j = 0; var h = 0; var k = 0;
+        var x1 = 1; var y1 = 1; var x2 = 1; var y2 = 1; 
         var counters = 0; var counter = 0;
         
         var scaleUp = function(arg){
@@ -113,7 +98,12 @@
             x2 = 1; y2 = 1;
             arg.scale(x2-0.05, y2-0.05);
         }
-            
+        
+            newCompass('N', 625, 80);
+            newCompass('S', 625, 550);
+            newCompass('E', 1050, 300);
+            newCompass('W', 200, 300);
+        
         var vintagePoint = function(args1, args2){
         var vintageCircle = new Path.Circle({
         center: [args1, args2],
