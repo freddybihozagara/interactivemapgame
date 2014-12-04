@@ -19,5 +19,5 @@ The paper.js API and reference material can be found here http://paperjs.org/ref
 
 Open index file with your web browser (chrome, firefox, IE) to view your work!
 
-Attention: This project is still in development.
+Attention: This project is still under development.
 For immediate support, email us at support@imenasoftware.com
