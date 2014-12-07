@@ -7,9 +7,10 @@
     <script type="text/paperscript" canvas="canvas">
         
         //---eastern
-        var easternprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe'];
-        var sixRounds = Math.random()*6;
-        var district = Math.round(sixRounds);
+       
+        var allprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe', 'gicumbi', 'rulindo', 'gakenke', 'burera', 'musanze', 'kamonyi', 'muhanga', 'nyaruguru', 'ruhango', 'nyamagabe', 'nyanza', 'huye', 'gisagara', 'kigali', 'nyabihu', 'rubavu', 'rutsiro', 'ngororero', 'karongi', 'nyamasheke', 'rusizi'];
+        var twentysevenRounds = Math.random()*27;
+        var alldistricts = Math.round(twentysevenRounds);
         
         var heading = new PointText(new Point(300, 100));
             heading.content = 'Wildcard';
@@ -17,7 +18,7 @@
         
         var Question = new PointText(new Point(300, 130));
             Question.fillColor = 'black';
-            Question.content = 'Where is ' + easternprovinces[district] + ' located?';
+            Question.content = 'Where is ' + allprovinces[alldistricts] + ' located?';
         
         var compass = new Path();
             compass.strokeColor = '#EFF704';
@@ -28,12 +29,12 @@
             compass.closed = true;
         
         setInterval(function (){
-            sixRounds = Math.random()*6;
-            district = Math.round(sixRounds);
-            Question.content = 'Where is ' + easternprovinces[district] + ' located?';
+            twentysevenRounds = Math.random()*27;
+            alldistricts = Math.round(twentysevenRounds);
+            Question.content = 'Where is ' + allprovinces[alldistricts] + ' located?';
             Question.visible = true;
             compass.rotate(90);
-            }, 1500);
+            }, 2000);
             
         var refreshBtn = new Path();
             refreshBtn.fillColor = '#6767B2';
@@ -117,9 +118,10 @@
             score.strokeWeight = 'Bold';
         
         btnTxt.onMouseDown = function(event){
-            sixRounds = Math.random()*6;
-            district = Math.round(sixRounds);
-            Question.content = 'Where is ' + easternprovinces[district]+ ' located?';
+        
+            twentysevenRounds = Math.random()*27;
+            alldistricts = Math.round(twentysevenRounds);
+            Question.content = 'Where is ' + allprovinces[alldistricts] + ' located?';
             Question.visible = true;
             score.content = counter + j;
             score.visible = true;
@@ -155,7 +157,6 @@
         //---
         
         var nyagatarepath = new Path();
-            //nyagatarepath.strokeColor = 'blue';
             nyagatarepath.fillColor = '#485B17';
             nyagatarepath.add(new Point(755, 158));
             nyagatarepath.add(new Point(785, 160));
@@ -167,11 +168,10 @@
             nyagatarepath.add(new Point(757, 257));
             nyagatarepath.add(new Point(708, 240));
             nyagatarepath.closed = true;
-            //nyagatarepath.fullySelected = true;
             nyagatarepath.smooth();
         
             nyagatarepath.onMouseDown = function(event){
-                if (easternprovinces[district] == 'nyagatare'){
+                if (allprovinces[alldistricts] == 'nyagatare'){
                         scoreUp();
                     } else{
                         scoreDown();
@@ -220,11 +220,10 @@
             gatsibopath.add(new Point(790, 315));
             gatsibopath.add(new Point(735, 308));
             gatsibopath.closed = true;
-            //gatsibopath.fullySelected = true;
             gatsibopath.smooth();
         
             gatsibopath.onMouseDown = function(event){
-                if (easternprovinces[district] == 'gatsibo'){
+                if (allprovinces[alldistricts] == 'gatsibo'){
                         scoreUp();
                     }else{
                         scoreDown();
@@ -266,11 +265,10 @@
         kayonzapath.add(new Point(825, 384));
         kayonzapath.add(new Point(842, 340));
         kayonzapath.closed = true;
-        //kayonzapath.fullySelected = true;
         kayonzapath.smooth();
         
         kayonzapath.onMouseDown = function(event){
-            if (easternprovinces[district] == 'kayonza'){
+            if (allprovinces[alldistricts] == 'kayonza'){
                     scoreUp();
                 }else{
                     scoreDown();
@@ -312,11 +310,10 @@
             rwamaganapath.add(new Point(722, 384));
             rwamaganapath.add(new Point(735, 350));
             rwamaganapath.closed = true;
-            //rwamaganapath.fullySelected = true;
             rwamaganapath.smooth();
             
             rwamaganapath.onMouseDown = function(event){
-                if (easternprovinces[district] == 'rwamagana'){
+                if (allprovinces[alldistricts] == 'rwamagana'){
                         scoreUp();
                     }else{
                         scoreDown(); 
@@ -347,7 +344,6 @@
         //---
 
         var bugeserapath = new Path();
-            //bugeserapath.strokeColor = 'blue';
             bugeserapath.fillColor = '#1C4427';
             bugeserapath.add(new Point(722, 384));
             bugeserapath.add(new Point(780, 401));
@@ -359,11 +355,10 @@
             bugeserapath.add(new Point(672, 398));
             bugeserapath.add(new Point(697, 376));
             bugeserapath.closed = true;
-            //bugeserapath.fullySelected = true;
             bugeserapath.smooth();
  
             bugeserapath.onMouseDown = function(event){
-                if (easternprovinces[district] == 'bugesera'){
+                if (allprovinces[alldistricts] == 'bugesera'){
                         scoreUp();
                     }else{
                         scoreDown();
@@ -405,11 +400,10 @@
             ngomapath.add(new Point(796, 464));
             ngomapath.add(new Point(785, 470));
             ngomapath.closed = true;
-            //ngomapath.fullySelected = true;
             ngomapath.smooth();
             
             ngomapath.onMouseDown = function(event){
-                if (easternprovinces[district] == 'ngoma'){
+                if (allprovinces[alldistricts] == 'ngoma'){
                         scoreUp();
                     }else{
                         scoreDown();
@@ -440,7 +434,6 @@
         //---
         
         var kirehepath = new Path();
-            //kirehepath.strokeColor = 'blue';
             kirehepath.fillColor = '#113D16';
             kirehepath.add(new Point(873, 411));
             kirehepath.add(new Point(945, 356));
@@ -454,7 +447,7 @@
             kirehepath.smooth();
         
             kirehepath.onMouseDown = function(event){
-                if (easternprovinces[district] == 'kirehe'){
+                if (allprovinces[alldistricts] == 'kirehe'){
                         scoreUp();
                     }else{
                         scoreDown();
@@ -491,7 +484,6 @@
             newpathprototype.add(new Point(100, 100));
             newpathprototype.add(new Point(60, 100));
             newpathprototype.closed = true;
-            //newpathprototype.fullySelected = true;
             newpathprototype.smooth();
              
              
@@ -501,6 +493,14 @@
             kigalipath.fillColor = '#1F68DD';
             kigalipath.position.x += 605;
             kigalipath.position.y += 260;
+            
+            kigalipath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'kigali'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
             
         var kigalinfo = new PointText(new Point(40, 340));
             kigalinfo.strokeColor = 'black';
@@ -530,6 +530,14 @@
             gicumbipath.position.x += 595;
             gicumbipath.position.y += 105;
             
+            gicumbipath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'gicumbi'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
         var gicumbinfo = new PointText(new Point(40, 340));
             gicumbinfo.strokeColor = 'black';
             gicumbinfo.fontSize = 12;
@@ -556,6 +564,14 @@
             rulindopath.fillColor = '#D39C10';
             rulindopath.position.x += 590;
             rulindopath.position.y += 175;
+            
+            rulindopath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'rulindo'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
             
         var rulindoinfo = new PointText(new Point(40, 340));
             rulindoinfo.strokeColor = 'black';
@@ -584,6 +600,14 @@
             burerapath.position.x += 535;
             burerapath.position.y += 65;
             
+            burerapath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'burera'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
         var burerainfo = new PointText(new Point(40, 340));
             burerainfo.strokeColor = 'black';
             burerainfo.fontSize = 12;
@@ -610,6 +634,14 @@
             gakenkepath.fillColor = '#D39C10';
             gakenkepath.position.x += 535;
             gakenkepath.position.y += 135;
+            
+            gakenkepath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'gakenke'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
             
         var gakenkeinfo = new PointText(new Point(40, 340));
             gakenkeinfo.strokeColor = 'black';
@@ -638,6 +670,14 @@
             musanzepath.fillColor = '#D39C10';
             musanzepath.position.x += 473;
             musanzepath.position.y += 98;
+            
+            musanzepath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'musanze'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
             
         var musanzeinfo = new PointText(new Point(40, 340));
             musanzeinfo.strokeColor = 'black';
@@ -668,6 +708,14 @@
             kamonyipath.position.x += 550;
             kamonyipath.position.y += 220;
             
+            kamonyipath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'kamonyi'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
         var kamonyinfo = new PointText(new Point(40, 340));
             kamonyinfo.strokeColor = 'black';
             kamonyinfo.fontSize = 12;
@@ -694,6 +742,14 @@
             muhangapath.fillColor = '#915151';
             muhangapath.position.x += 490;
             muhangapath.position.y += 220;
+            
+            muhangapath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'muhanga'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
         
         var muhangainfo = new PointText(new Point(40, 340));
             muhangainfo.strokeColor = 'black';
@@ -721,6 +777,14 @@
             ruhangopath.fillColor = '#915151';
             ruhangopath.position.x += 530;
             ruhangopath.position.y += 280;
+            
+            ruhangopath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'ruhango'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
         
         var ruhangoinfo = new PointText(new Point(40, 340));
             ruhangoinfo.strokeColor = 'black';
@@ -748,6 +812,14 @@
             nyanzapath.fillColor = '#915151';
             nyanzapath.position.x += 560;
             nyanzapath.position.y += 340;
+            
+            nyanzapath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'nyanza'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
         
         var nyanzainfo = new PointText(new Point(40, 340));
             nyanzainfo.strokeColor = 'black';
@@ -775,6 +847,14 @@
             huyepath.fillColor = '#915151';
             huyepath.position.x += 490;
             huyepath.position.y += 330;
+            
+            huyepath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'huye'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
            
         
         var huyeinfo = new PointText(new Point(40, 340));
@@ -805,6 +885,14 @@
             gisagarapath.position.x += 520;
             gisagarapath.position.y += 390;
             
+            gisagarapath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'gisagara'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
         var gisagarainfo = new PointText(new Point(40, 340));
             gisagarainfo.strokeColor = 'black';
             gisagarainfo.fontSize = 12;
@@ -832,6 +920,14 @@
             nyarugurupath.position.x += 450;
             nyarugurupath.position.y += 390;
             
+            nyarugurupath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'nyaruguru'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
         var nyaruguruinfo = new PointText(new Point(40, 340));
             nyaruguruinfo.strokeColor = 'black';
             nyaruguruinfo.fontSize = 12;
@@ -858,6 +954,14 @@
             nyamagabepath.fillColor = '#915151';
             nyamagabepath.position.x += 455;
             nyamagabepath.position.y += 270;
+            
+            nyamagabepath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'nyamagabe'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
             
         var nyamagabeinfo = new PointText(new Point(40, 340));
             nyamagabeinfo.strokeColor = 'black';
@@ -887,6 +991,14 @@
             nyabihupath.position.x += 480;
             nyabihupath.position.y += 160;
             
+            nyabihupath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'nyabihu'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
         var nyabihuinfo = new PointText(new Point(40, 340));
             nyabihuinfo.strokeColor = 'black';
             nyabihuinfo.fontSize = 12;
@@ -913,6 +1025,14 @@
             rubavupath.fillColor = '#D14710';
             rubavupath.position.x += 410;
             rubavupath.position.y += 140;
+            
+            rubavupath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'rubavu'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
             
         var rubavuinfo = new PointText(new Point(40, 340));
             rubavuinfo.strokeColor = 'black';
@@ -941,6 +1061,14 @@
             ngororeropath.position.x += 420;
             ngororeropath.position.y += 205;
             
+            ngororeropath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'ngororero'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
         var ngororeroinfo = new PointText(new Point(40, 340));
             ngororeroinfo.strokeColor = 'black';
             ngororeroinfo.fontSize = 12;
@@ -967,6 +1095,14 @@
             rutsiropath.fillColor = '#D14710';
             rutsiropath.position.x += 350;
             rutsiropath.position.y += 210;
+            
+            rutsiropath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'rutsiro'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
             
         var rutsiroinfo = new PointText(new Point(40, 340));
             rutsiroinfo.strokeColor = 'black';
@@ -995,6 +1131,14 @@
             karongipath.fillColor = '#D14710';
             karongipath.position.x += 390;
             karongipath.position.y += 270;
+            
+            karongipath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'karongi'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
         
         var karonginfo = new PointText(new Point(40, 340));
             karonginfo.strokeColor = 'black';
@@ -1022,6 +1166,14 @@
             nyamashekepath.fillColor = '#D14710';
             nyamashekepath.position.x += 420;
             nyamashekepath.position.y += 330;
+            
+            nyamashekepath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'nyamasheke'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
         
         var nyamashekeinfo = new PointText(new Point(40, 340));
             nyamashekeinfo.strokeColor = 'black';
@@ -1049,6 +1201,15 @@
             rusizipath.fillColor = '#D14710';
             rusizipath.position.x += 370;
             rusizipath.position.y += 380;
+            
+            rusizipath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'rusizi'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
             
         var rusizinfo = new PointText(new Point(40, 340));
             rusizinfo.strokeColor = 'black';
