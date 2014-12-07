@@ -47,7 +47,7 @@
             refreshBtn.add(new Point(300, 180));
             refreshBtn.closed = true;
             refreshBtn.onClick = function(event){
-                window.location.reload();
+                window.location.reload(true);
             }
             
         var ArrowNorth = new Path();
@@ -128,7 +128,7 @@
             Question.visible = true;
             score.content = counter + j;
             score.visible = true;
-            window.location.reload();
+            window.location.reload(true);
             }
                 
         var highest = new PointText(new Point(300, 240));
