@@ -486,8 +486,6 @@
         //---
         
         var newpathprototype = new Path();
-            //newpathprototype.strokeColor = 'blue';
-            //newpathprototype.fillColor = '#113D16';
             newpathprototype.add(new Point(60,60));
             newpathprototype.add(new Point(100, 60));
             newpathprototype.add(new Point(100, 100));
@@ -501,7 +499,7 @@
         
         var kigalipath = newpathprototype.clone();
             kigalipath.fillColor = '#1F68DD';
-            kigalipath.position.x += 615;
+            kigalipath.position.x += 605;
             kigalipath.position.y += 260;
             
         var kigalinfo = new PointText(new Point(40, 340));
@@ -1068,7 +1066,7 @@
             rusizipath.onMouseLeave = function(event) {
             x2 = 1; y2 = 1;
             text.visible = false;
-            rusiziinfo.visible = false;
+            rusizinfo.visible = false;
             scaleDown(rusizipath);
             }
             
