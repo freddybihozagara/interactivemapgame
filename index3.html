@@ -6,6 +6,7 @@
         <source id='soundEFx' src="in_the_morning.mp3" type="audio/mpeg" preload="auto">
         Your browser does not support the audio element.
         </audio>
+        
     <title>Interactive Map</title>
     <script type="text/javascript" src="paper.js"></script>
     <script type="text/paperscript" canvas="canvas">
@@ -94,12 +95,12 @@
         
         var scaleUp = function(arg){
             var x = 1; var y = 1; 
-            arg.scale(x1+0.05, y1+0.05);
+            arg.scale(x+0.05, y+0.05);
         }
         
         var scaleDown = function(arg){
             var x = 1; var y = 1;
-            arg.scale(x2-0.05, y2-0.05);
+            arg.scale(x-0.05, y-0.05);
         }
         
             newCompass('N', 625, 70);
@@ -136,6 +137,8 @@
             highest.content = 'high score: ' + i;
         
         var scoreUp = function(){
+            var ys = new Audio('yes.mp3');
+                ys.play();
             counter = counter + 100;
             score.content = 'score: ' + counter;
             score.visible = true;
@@ -152,6 +155,8 @@
             }
         
         var scoreDown = function(){
+            var no = new Audio('no.mp3');
+                no.play();
             counter = counter - 100;
             h = counter;
             score.content = 'score: ' + counter;
@@ -1245,6 +1250,6 @@
     
     <canvas id="canvas" resize style="background-color: #9DB299"></canvas>            
     <!-- Insert your content here -->
-    <footer>Copyright&copy 2014 Imena Software Ltd.</footer>
+    <footer>Copyright&copy 2014 Imena Software Ltd. [support@imenasoftware.com]</footer>
 </body>
 </html>
