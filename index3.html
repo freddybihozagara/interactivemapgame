@@ -2,11 +2,14 @@
 
 <html lang="en">    
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+        <audio controls autoplay loop>
+        <source id='soundEFx' src="in_the_morning.mp3" type="audio/mpeg" preload="auto">
+        Your browser does not support the audio element.
+        </audio>
     <title>Interactive Map</title>
     <script type="text/javascript" src="paper.js"></script>
     <script type="text/paperscript" canvas="canvas">
         
-        //---
         
         var allprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe', 'gicumbi', 'rulindo', 'gakenke', 'burera', 'musanze', 'kamonyi', 'muhanga', 'nyaruguru', 'ruhango', 'nyamagabe', 'nyanza', 'huye', 'gisagara', 'kigali', 'nyabihu', 'rubavu', 'rutsiro', 'ngororero', 'karongi', 'nyamasheke', 'rusizi'];
         var twentysevenRounds = Math.random()*27;
@@ -1238,7 +1241,8 @@
         
     </script>
 </head>
-<body>
+<body bgcolor="#9DB299">
+    
     <canvas id="canvas" resize style="background-color: #9DB299"></canvas>            
     <!-- Insert your content here -->
     <footer>Copyright&copy 2014 Imena Software Ltd.</footer>
