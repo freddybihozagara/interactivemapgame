@@ -1185,6 +1185,58 @@
             scaleDown(rusizipath);
             }
             
+            
+        var newprototypelegend = new Path();
+            newprototypelegend.add(new Point(1050, 420));
+            newprototypelegend.add(new Point(1150, 420));
+            newprototypelegend.add(new Point(1150, 450));
+            newprototypelegend.add(new Point(1050, 450));
+            newprototypelegend.closed = true;
+            
+        var legendTitle = new PointText(new Point(1050, 420))
+            legendTitle.strokeColor = 'black';
+            legendTitle.fontSize = 12;
+            legendTitle.content = 'Legend';
+        
+        var EastLegendText = legendTitle.clone();
+            EastLegendText.position.x -= 40;
+            EastLegendText.position.y += 40;
+            EastLegendText.content = 'East';
+            
+        var WestLegendText = legendTitle.clone();
+            WestLegendText.position.x -= 40;
+            WestLegendText.position.y += 75;
+            WestLegendText.content = 'West';
+            
+        var NorthLegendText = legendTitle.clone();
+            NorthLegendText.position.x -= 40;
+            NorthLegendText.position.y += 110;
+            NorthLegendText.content = 'North';
+            
+        var SouthLegendText = legendTitle.clone();
+            SouthLegendText.position.x -= 40;
+            SouthLegendText.position.y += 145;
+            SouthLegendText.content = 'South';
+            
+        var legendEast = newprototypelegend.clone();
+            legendEast.fillColor = '#205E25';
+            legendEast.position.x = 1100;
+            legendEast.position.y += 30;            
+            
+        var legendWest = newprototypelegend.clone();
+            legendWest.fillColor = '#D14710';
+            legendWest.position.x = 1100;
+            legendWest.position.y += 65;
+            
+        var legendNorth = newprototypelegend.clone();
+            legendNorth.fillColor = '#D39C10';
+            legendNorth.position.x = 1100;
+            legendNorth.position.y += 100;
+        
+        var legendSouth = newprototypelegend.clone();
+            legendSouth.fillColor = '#915151';
+            legendSouth.position.x = 1100;
+            legendSouth.position.y += 135;
         
         
         
@@ -1192,7 +1244,7 @@
 </head>
 <body bgcolor="#9DB299">
     
-    <canvas id="canvas" resize style="background-color: #9DB299"></canvas>            
+    <canvas id="canvas" resize style="background-color: #9DB299" width="1300" height="900"></canvas>            
     <!-- Insert your content here -->
     <footer>Copyright&copy 2014 Imena Software Ltd. [support@imenasoftware.com]</footer>
 </body>
