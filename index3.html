@@ -11,7 +11,6 @@
     <script type="text/javascript" src="paper.js"></script>
     <script type="text/paperscript" canvas="canvas">
         
-        
         var allprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe', 'gicumbi', 'rulindo', 'gakenke', 'burera', 'musanze', 'kamonyi', 'muhanga', 'nyaruguru', 'ruhango', 'nyamagabe', 'nyanza', 'huye', 'gisagara', 'kigali', 'nyabihu', 'rubavu', 'rutsiro', 'ngororero', 'karongi', 'nyamasheke', 'rusizi'];
         var twentysevenRounds = Math.random()*27;
         var alldistricts = Math.round(twentysevenRounds);
@@ -80,7 +79,7 @@
             }
             
         var copyright = new PointText(new Point(540, 600));
-            copyright.content = 'Copyright© 2014. Imena Software Ltd.\n        support@imenasoftware.com';
+            copyright.content = 'Copyright© 2014. Imena Software Ltd.\n        support@imenasoftware.com\n  audio credits: http://www.freesfx.co.uk';
             copyright.fillColor = '#0C0707';
             copyright.strokeWeight = 'Bold';
             copyright.fontSize = 10;
@@ -139,6 +138,10 @@
         var scoreUp = function(){
             var ys = new Audio('yes.mp3');
                 ys.play();
+            var laughing = new Audio('comedy_male_cartoon_character_laughing.mp3');
+            var comedy_m5 = new Audio('comedy_marimba_ascend_005.mp3');
+            var comedy_m4 = new Audio('comedy_marimba_ascend_004.mp3');
+            var comedy_m3 = new Audio('comedy_marimba_ascend_003.mp3');
             counter = counter + 100;
             score.content = 'score: ' + counter;
             score.visible = true;
@@ -146,6 +149,14 @@
             if (counters >= k){
                 k = counters;
             }
+            if((k % 3) == 1){
+                comedy_m5.play();
+            }else if((k % 3) == 2){
+                comedy_m4.play();
+            }else if((k % 3) == 0){
+                comedy_m3.play();
+            }
+            
             i = counters;
             if((i < k) && (i >= h)){
                 highest.content = 'high score: ' + k;
@@ -157,7 +168,12 @@
         var scoreDown = function(){
             var no = new Audio('no.mp3');
                 no.play();
+            var cry = new Audio('comedy_male_cartoon_character_crying.mp3');
+                
             counter = counter - 100;
+            if(h > counter){
+                cry.play();
+            }
             h = counter;
             score.content = 'score: ' + counter;
             score.visible = true;
