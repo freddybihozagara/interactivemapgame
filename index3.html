@@ -171,11 +171,11 @@
         var scoreDown = function(){
             var no = new Audio('no.mp3');
                 no.play();
-            var cry = new Audio('comedy_male_cartoon_character_crying.mp3');
+            var show_some_emotions = new Audio('comedy_male_cartoon_character_crying.mp3');
                 
             counter = counter - 100;
             if(h > counter){
-                cry.play();
+                show_some_emotions.play();
             }
             h = counter;
             score.content = 'score: ' + counter;
