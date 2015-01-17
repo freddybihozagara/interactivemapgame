@@ -82,7 +82,7 @@
         var displayLink = FreeSFX.link("http://www.freesfx.co.uk");
         
         var copyright = new PointText(new Point(540, 600));
-            copyright.content = 'Copyright© 2014. Imena Software Ltd.\n        support@imenasoftware.com\n             audio credits: FreeSFX';
+            copyright.content = 'Copyright© 2015. Imena Software Ltd.\n        support@imenasoftware.com\n             audio credits: FreeSFX';
             copyright.fillColor = '#0C0707';
             copyright.strokeWeight = 'Bold';
             copyright.fontSize = 10;
@@ -145,28 +145,28 @@
             var comedy_m5 = new Audio('comedy_marimba_ascend_005.mp3');
             var comedy_m4 = new Audio('comedy_marimba_ascend_004.mp3');
             var comedy_m3 = new Audio('comedy_marimba_ascend_003.mp3');
-            counter = counter + 100;
-            score.content = 'score: ' + counter;
-            score.visible = true;
-            counters = counter;
-            if (counters >= k){
-                k = counters;
-            }
-            if((k % 3) == 1){
-                comedy_m5.play();
-            }else if((k % 3) == 2){
-                comedy_m4.play();
-            }else if((k % 3) == 0){
-                comedy_m3.play();
-            }
-            
-            i = counters;
-            if((i < k) && (i >= h)){
-                highest.content = 'high score: ' + k;
-            } else {
-                highest.content = 'high score: ' + k; 
+                counter = counter + 100;
+                score.content = 'score: ' + counter;
+                score.visible = true;
+                counters = counter;
+                if (counters >= k){
+                    k = counters;
                 }
-            }
+                if((k % 3) == 1){
+                    comedy_m5.play();
+                }else if((k % 3) == 2){
+                    comedy_m4.play();
+                }else if((k % 3) == 0){
+                    comedy_m3.play();
+                }
+                
+                i = counters;
+                if((i < k) && (i >= h)){
+                    highest.content = 'high score: ' + k;
+                } else {
+                    highest.content = 'high score: ' + k; 
+                    }
+                }
         
         var scoreDown = function(){
             var no = new Audio('no.mp3');
@@ -1265,6 +1265,6 @@
     
     <canvas id="canvas" resize style="background-color: #9DB299" width="1300" height="1024"></canvas>            
     <!-- Insert your content here -->
-    <footer>Copyright&copy 2014 Imena Software Ltd. [support@imenasoftware.com]</footer>
+    <footer>Copyright&copy 2015 Imena Software Ltd. [support@imenasoftware.com]</footer>
 </body>
 </html>
