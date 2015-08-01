@@ -19,5 +19,7 @@ The paper.js library and reference material can be found here http://paperjs.org
 
 Open index file with your web browser (chrome, firefox, IE) to view your work!
 
+The interactive map game can be accessed via this link http://imenasoftware.com/interactivemap/index.html
+
 Attention: This current version(stable) may be further improved as required.
 For immediate support, email us at support@imenasoftware.com
