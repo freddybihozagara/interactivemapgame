@@ -167,14 +167,9 @@
                     highest.content = 'high score: ' + k;
                 } else {
                     highest.content = 'high score: ' + k; 
-                    }
+                    }}catch(err){alert("Error: " + err + ".");}
                 }
-        }catch(err){
-    
-            alert("Error: " + err + ".");
-            
-            }
-        
+
         var scoreDown = function(){
             var no = new Audio('no.mp3');
                 no.play();
