@@ -97,12 +97,16 @@
         
         var scaleUp = function(arg){
             var x = 1; var y = 1; 
+            try{
             arg.scale(x+0.05, y+0.05);
+            }catch(err){alert("Error: "+err+"!")}
         }
         
         var scaleDown = function(arg){
             var x = 1; var y = 1;
+            try{
             arg.scale(x-0.05, y-0.05);
+            }catch(err){alert("Error: "+err+"!")}
         }
         
             newCompass('N', 625, 70);
