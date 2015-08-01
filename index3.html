@@ -145,6 +145,7 @@
             var comedy_m5 = new Audio('comedy_marimba_ascend_005.mp3');
             var comedy_m4 = new Audio('comedy_marimba_ascend_004.mp3');
             var comedy_m3 = new Audio('comedy_marimba_ascend_003.mp3');
+            
         try{ 
                 counter = counter + 100;
                 score.content = 'score: ' + counter;
@@ -168,7 +169,7 @@
                     highest.content = 'high score: ' + k; 
                     }
                 }
-         }catch(err) {
+        }catch(err){
     
             alert("Error: " + err + ".");
             
