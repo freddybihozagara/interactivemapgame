@@ -19,5 +19,5 @@ The paper.js library and reference material can be found here http://paperjs.org
 
 Open index file with your web browser (chrome, firefox, IE) to view your work!
 
-Attention: This project is still under development.
+Attention: This current version(stable) may be further improved as required.
 For immediate support, email us at support@imenasoftware.com
