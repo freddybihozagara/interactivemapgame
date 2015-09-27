@@ -1,0 +1,7 @@
+language: html5
+
+html5:
+  - "5.1"
+
+script:
+  - touch foo
