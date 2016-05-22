@@ -17,4 +17,4 @@ Open index file with your web browser (chrome, firefox, IE) to view your work!
 The game can be accessed via this link http://imenasoftware.com/interactivemap/index.html
 
 Attention: This current version(stable) may be further improved as required.
-For immediate support, email us at support@imenasoftware.com
+For immediate support, email us at support@imenalabs.ca
