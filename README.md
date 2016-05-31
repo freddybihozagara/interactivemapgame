@@ -1,4 +1,4 @@
-interactive map game
+Interactive Map Game
 ====================
 
 How to use this template:
