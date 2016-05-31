@@ -3,12 +3,12 @@
 <html lang="en">    
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
         <audio controls autoplay loop>
-        <source id='soundEFx' src="in_the_morning.mp3" type="audio/mpeg" preload="auto">
+        <source id='soundEFx' src="assets/media/in_the_morning.mp3" type="audio/mpeg" preload="auto">
         Your browser does not support the audio element.
         </audio>
         
     <title>Interactive Map</title>
-    <script type="text/javascript" src="paper.js"></script>
+    <script type="text/javascript" src="js/paper.js"></script>
     <script type="text/paperscript" canvas="canvas">
         
         var allprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe', 'gicumbi', 'rulindo', 'gakenke', 'burera', 'musanze', 'kamonyi', 'muhanga', 'nyaruguru', 'ruhango', 'nyamagabe', 'nyanza', 'huye', 'gisagara', 'kigali', 'nyabihu', 'rubavu', 'rutsiro', 'ngororero', 'karongi', 'nyamasheke', 'rusizi'];
@@ -82,7 +82,7 @@
         var displayLink = FreeSFX.link("http://www.freesfx.co.uk");
         
         var copyright = new PointText(new Point(540, 600));
-            copyright.content = 'Copyright© 2015. Imena Software Ltd.\n        support@imenasoftware.com\n             audio credits: FreeSFX';
+            copyright.content = 'Copyright© 2016. Imena Labs Ltd.\n        support@imenalabs.ca\n             audio credits: FreeSFX';
             copyright.fillColor = '#0C0707';
             copyright.strokeWeight = 'Bold';
             copyright.fontSize = 10;
@@ -143,12 +143,12 @@
             highest.content = 'high score: ' + i;
         
         var scoreUp = function(){
-            var ys = new Audio('yes.mp3');
+            var ys = new Audio('assets/media/yes.mp3');
                 ys.play();
-            var laughing = new Audio('comedy_male_cartoon_character_laughing.mp3');
-            var comedy_m5 = new Audio('comedy_marimba_ascend_005.mp3');
-            var comedy_m4 = new Audio('comedy_marimba_ascend_004.mp3');
-            var comedy_m3 = new Audio('comedy_marimba_ascend_003.mp3');
+            var laughing = new Audio('assets/media/comedy_male_cartoon_character_laughing.mp3');
+            var comedy_m5 = new Audio('assets/media/comedy_marimba_ascend_005.mp3');
+            var comedy_m4 = new Audio('assets/media/comedy_marimba_ascend_004.mp3');
+            var comedy_m3 = new Audio('assets/media/comedy_marimba_ascend_003.mp3');
             
         try{ 
                 counter = counter + 100;
@@ -175,9 +175,9 @@
                 }
 
         var scoreDown = function(){
-            var no = new Audio('no.mp3');
+            var no = new Audio('assets/media/no.mp3');
                 no.play();
-            var show_some_emotions = new Audio('comedy_male_cartoon_character_crying.mp3');
+            var show_some_emotions = new Audio('assets/media/comedy_male_cartoon_character_crying.mp3');
                 
             counter = counter - 100;
             if(h > counter){
@@ -1271,6 +1271,6 @@
     
     <canvas id="canvas" resize style="background-color: #9DB299" width="1300" height="1024"></canvas>            
     <!-- Insert your content here -->
-    <footer>Copyright&copy 2015 Imena Software Ltd. [support@imenasoftware.com]</footer>
+    <footer>Copyright&copy 2016 Imena Labs Ltd. [support@imenalabs.ca]</footer>
 </body>
 </html>
