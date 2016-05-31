@@ -1,18 +1,1276 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="en">    
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-    <title>Paper Js</title>
-    <script type="text/javascript" src="paper.js"></script>
-    <script type="text/paperscript" canvas="Canvas">
-                </script>
-    <!-- Insert your content here -->
-</head>
+        <audio controls autoplay loop>
+        <source id='soundEFx' src="assets/media/in_the_morning.mp3" type="audio/mpeg" preload="auto">
+        Your browser does not support the audio element.
+        </audio>
+        
+    <title>Interactive Map</title>
+    <script type="text/javascript" src="js/paper.js"></script>
+    <script type="text/paperscript" canvas="canvas">
+        
+        var allprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe', 'gicumbi', 'rulindo', 'gakenke', 'burera', 'musanze', 'kamonyi', 'muhanga', 'nyaruguru', 'ruhango', 'nyamagabe', 'nyanza', 'huye', 'gisagara', 'kigali', 'nyabihu', 'rubavu', 'rutsiro', 'ngororero', 'karongi', 'nyamasheke', 'rusizi'];
+        var twentysevenRounds = Math.random()*27;
+        var alldistricts = Math.round(twentysevenRounds);
+        
+        var heading = new PointText(new Point(300, 100));
+            heading.content = 'Wildcard';
+            heading.fillColor = 'black';
+        
+        var Question = new PointText(new Point(300, 130));
+            Question.fillColor = 'black';
+            Question.content = 'Where is ' + allprovinces[alldistricts] + ' located?';
+        
+        var compass = new Path();
+            compass.strokeColor = '#EFF704';
+            compass.fillColor = '#E84A06';
+            compass.add(new Point(270, 120));
+            compass.add(new Point(280, 120));
+            compass.add(new Point(275, 130));
+            compass.closed = true;
+        
+        setInterval(function (){
+            twentysevenRounds = Math.random()*27;
+            alldistricts = Math.round(twentysevenRounds);
+            Question.content = 'Where is ' + allprovinces[alldistricts] + ' located?';
+            Question.visible = true;
+            compass.rotate(90);
+            }, 2000);
+            
+        var refreshBtn = new Path();
+            refreshBtn.fillColor = '#6767B2';
+            refreshBtn.add(new Point(300, 150));
+            refreshBtn.add(new Point(400, 150));
+            refreshBtn.add(new Point(400, 180));
+            refreshBtn.add(new Point(300, 180));
+            refreshBtn.closed = true;
+            refreshBtn.onClick = function(event){
+                window.location.reload(true);
+            }
+            
+        var ArrowNorth = new Path();
+            ArrowNorth.fillColor = 'black';
+            ArrowNorth.add(new Point(622, 100));
+            ArrowNorth.add(new Point(632, 90));
+            ArrowNorth.add(new Point(642, 100));
+            ArrowNorth.add(new Point(632, 95));
+            ArrowNorth.closed = true;
+            
+        var ArrowEast = ArrowNorth.clone();
+            ArrowEast.position = new Point(1030, 293);
+            ArrowEast.rotate(90);
+            
+        var ArrowWest = ArrowNorth.clone();
+            ArrowWest.position = new Point(235, 293);
+            ArrowWest.rotate(270);
+            
+        var ArrowSouth = ArrowNorth.clone();
+            ArrowSouth.position = new Point(630, 525);
+            ArrowSouth.rotate(180);
+            
+        var newCompass = function(arg, x, y){
+            var newpoint = new PointText(new Point(x, y));
+                newpoint.content = arg;
+                newpoint.fillColor = '#0C0707';
+                newpoint.strokeWeight = 'Bold';
+                newpoint.fontSize = 20;
+            }
+            
+        var FreeSFX = "FreeSFX";
+        var displayLink = FreeSFX.link("http://www.freesfx.co.uk");
+        
+        var copyright = new PointText(new Point(540, 600));
+            copyright.content = 'Copyright© 2016. Imena Labs Ltd.\n        support@imenalabs.ca\n             audio credits: FreeSFX';
+            copyright.fillColor = '#0C0707';
+            copyright.strokeWeight = 'Bold';
+            copyright.fontSize = 10;
+        
+        var btnTxt = new PointText(new Point(320, 170));
+            btnTxt.content = 'Try again';
+            btnTxt.fillColor = '#0C0707';
+            btnTxt.strokeWeight = 'Bold';
+        
+        var i = 0; var j = 0; var k = 0; var h = 0;
+        var counters = 0; var counter = 0;
+        
+        var scaleUp = function(arg){
+            var x = 1; var y = 1; 
+            try{
+            arg.scale(x+0.05, y+0.05);
+            }catch(err){alert("Error: "+err+"!")}
+        }
+        
+        var scaleDown = function(arg){
+            var x = 1; var y = 1;
+            try{
+            arg.scale(x-0.05, y-0.05);
+            }catch(err){alert("Error: "+err+"!")}
+        }
+        
+            newCompass('N', 625, 70);
+            newCompass('S', 625, 560);
+            newCompass('E', 1050, 300);
+            newCompass('W', 200, 300);
+        
+        var vintagePoint = function(args1, args2){
+        var vintageCircle = new Path.Circle({
+        center: [args1, args2],
+        radius: 3,
+        fillColor: 'red'
+        });
+        }
+        
+        var score = new PointText(new Point(300, 210));
+            score.content = 'score: ' + j;
+            score.fillColor = '#0C0707';
+            score.strokeWeight = 'Bold';
+        
+        btnTxt.onMouseDown = function(event){
+        
+            twentysevenRounds = Math.random()*27;
+            alldistricts = Math.round(twentysevenRounds);
+            Question.content = 'Where is ' + allprovinces[alldistricts] + ' located?';
+            Question.visible = true;
+            score.content = counter + j;
+            score.visible = true;
+            window.location.reload(true);
+            }
+                
+        var highest = new PointText(new Point(300, 240));
+            highest.strokeColor = 'black';
+            highest.content = 'high score: ' + i;
+        
+        var scoreUp = function(){
+            var ys = new Audio('assets/media/yes.mp3');
+                ys.play();
+            var laughing = new Audio('assets/media/comedy_male_cartoon_character_laughing.mp3');
+            var comedy_m5 = new Audio('assets/media/comedy_marimba_ascend_005.mp3');
+            var comedy_m4 = new Audio('assets/media/comedy_marimba_ascend_004.mp3');
+            var comedy_m3 = new Audio('assets/media/comedy_marimba_ascend_003.mp3');
+            
+        try{ 
+                counter = counter + 100;
+                score.content = 'score: ' + counter;
+                score.visible = true;
+                counters = counter;
+                if (counters >= k){
+                    k = counters;
+                }
+                if((k % 3) == 1){
+                    comedy_m5.play();
+                }else if((k % 3) == 2){
+                    comedy_m4.play();
+                }else if((k % 3) == 0){
+                    comedy_m3.play();
+                }
+                
+                i = counters;
+                if((i < k) && (i >= h)){
+                    highest.content = 'high score: ' + k;
+                } else {
+                    highest.content = 'high score: ' + k; 
+                    }}catch(err){alert("Error: " + err + ".");}
+                }
 
+        var scoreDown = function(){
+            var no = new Audio('assets/media/no.mp3');
+                no.play();
+            var show_some_emotions = new Audio('assets/media/comedy_male_cartoon_character_crying.mp3');
+                
+            counter = counter - 100;
+            if(h > counter){
+                show_some_emotions.play();
+            }
+            h = counter;
+            score.content = 'score: ' + counter;
+            score.visible = true;
+        }
+        //---
+        
+        //---eastern
+        
+        var nyagatarepath = new Path();
+            nyagatarepath.fillColor = '#485B17';
+            nyagatarepath.add(new Point(755, 158));
+            nyagatarepath.add(new Point(785, 160));
+            nyagatarepath.add(new Point(804, 110));
+            nyagatarepath.add(new Point(853, 113));
+            nyagatarepath.add(new Point(859, 149));
+            nyagatarepath.add(new Point(905, 216));
+            nyagatarepath.add(new Point(804, 237));
+            nyagatarepath.add(new Point(757, 257));
+            nyagatarepath.add(new Point(708, 240));
+            nyagatarepath.closed = true;
+            nyagatarepath.smooth();
+        
+            nyagatarepath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'nyagatare'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+                
+        var text = new PointText(new Point(10, 300));
+            text.fillColor = 'green';
+            text.fontWeight = 'bold';
+            text.fontSize = 30;
+        
+        var nyagatareinfo = new PointText(new Point(40, 340));
+            nyagatareinfo.strokeColor = 'black';
+            nyagatareinfo.fontSize = 12;
+        
+        nyagatarepath.onMouseEnter = function(event) { 
+            text.content = 'nyagatare';       
+            text.visible = true;
+            nyagatareinfo.content = 'The District of Nyagatare is one of the seven districts \nmaking the Eastern Province. It is divided into 14 Sectors \nmade of 106 cells and 630 Villages Imidugudu: Gatunda, \nKiyombe,  Karama,  Karangazi,  Katabagemu,  Matimba, \nMimuli, Mukama, Musheli, Nyagatare, Rukomo, Rwempasha, \nRwimiyaga and Tabagwe. (source: wikipedia)';
+            nyagatareinfo.visible = true;
+            scaleUp(nyagatarepath);
+            }
+            
+        nyagatarepath.onMouseLeave = function(event) {
+            text.visible = false;
+            nyagatareinfo.visible = false;
+            scaleDown(nyagatarepath);
+            }
+            vintagePoint(780, 150);
+       
+        //---
 
-<body>
-    <canvas id="Canvas" resize></canvas>            
-    <!-- Insert your content here -->
+        var gatsibopath = new Path();
+            gatsibopath.strokeColor = 'blue';
+            gatsibopath.fillColor = '#205E25';
+            gatsibopath.add(new Point(708, 240));
+            gatsibopath.add(new Point(757, 257));
+            gatsibopath.add(new Point(804, 237));
+            gatsibopath.add(new Point(905, 216));
+            gatsibopath.add(new Point(938, 249));
+            gatsibopath.add(new Point(940, 279));
+            gatsibopath.add(new Point(818, 281));
+            gatsibopath.add(new Point(816, 295));
+            gatsibopath.add(new Point(790, 315));
+            gatsibopath.add(new Point(735, 308));
+            gatsibopath.closed = true;
+            gatsibopath.smooth();
+        
+            gatsibopath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'gatsibo'){
+                        scoreUp();
+                    }else{
+                        scoreDown();
+                    }
+                }
+            
+        var gatsiboinfo = new PointText(new Point(40, 340));
+            gatsiboinfo.strokeColor = 'black';
+            gatsiboinfo.fontSize = 12;
+        
+        gatsibopath.onMouseEnter = function(event) {
+            text.content = 'gatsibo';       
+            text.visible = true;
+            gatsiboinfo.content = 'The District of Gatsibo is composed from 14 Sectors\nto knowledge Gasange, Gatsibo, Gitoki, Kabarore,\nKageyo, Kiramuruzi, Kiziguro, Muhura, Murambi,\nNgarama,  Nyagihanga,  Remera,  Rugarama  and\n Rwimbogo. It has 69 cells and 603 villages (Imidugudu).\nGatsibo  is  delimited  to  the  East  by  the  National\nPark of the Akagera; to the North by the District of\nNyagatare; to the West by the District of Gicumbi,\nto the South by the Districts of Rwamagana and\n Kayonza. (source: wikipedia)';
+            gatsiboinfo.visible = true;
+            scaleUp(gatsibopath);
+            }
     
+        gatsibopath.onMouseLeave = function(event) {
+            text.visible = false;
+            gatsiboinfo.visible = false;
+            scaleDown(gatsibopath);
+            }
+            vintagePoint(916, 218);
+            
+        //---
+
+        var kayonzapath = new Path();
+        kayonzapath.strokeColor = 'blue';
+        kayonzapath.fillColor = '#156013';
+        kayonzapath.add(new Point(816, 295));
+        kayonzapath.add(new Point(818, 281));
+        kayonzapath.add(new Point(940, 279));
+        kayonzapath.add(new Point(936, 332));
+        kayonzapath.add(new Point(945, 356));
+        kayonzapath.add(new Point(873, 411));
+        kayonzapath.add(new Point(825, 384));
+        kayonzapath.add(new Point(842, 340));
+        kayonzapath.closed = true;
+        kayonzapath.smooth();
+        
+        kayonzapath.onMouseDown = function(event){
+            if (allprovinces[alldistricts] == 'kayonza'){
+                    scoreUp();
+                }else{
+                    scoreDown();
+                    }
+            }
+        
+        var kayonzainfo = new PointText(new Point(40, 340));
+            kayonzainfo.strokeColor = 'black';
+            kayonzainfo.fontSize = 12;
+            
+        kayonzapath.onMouseEnter = function(event) {
+            text.content = 'kayonza';       
+            text.visible = true;
+            kayonzainfo.content = 'Kayonza is a district (akarere) in Eastern Province,\nRwanda. Its capital is Mukarange. Kayonza district is\n divided into 12 sectors (imirenge): Gahini, Kabare,\nKabarondo, Mukarange, Murama, Murundi, Mwiri, \nNdego, Nyamirama, Rukara, Ruramira and Rwinkwavu.\n (source: wikipedia)';
+            kayonzainfo.visible = true;
+            scaleUp(kayonzapath);
+            }
+    
+        kayonzapath.onMouseLeave = function(event) {
+            text.visible = false;
+            kayonzainfo.visible = false;
+            scaleDown(kayonzapath);
+            }
+            vintagePoint(945, 292);            
+            
+        //---
+
+        var rwamaganapath = new Path();
+            rwamaganapath.strokeColor = 'blue';
+            rwamaganapath.fillColor = '#8A8C23';
+            rwamaganapath.add(new Point(735, 308));
+            rwamaganapath.add(new Point(790, 315));
+            rwamaganapath.add(new Point(816, 295));
+            rwamaganapath.add(new Point(842, 340));
+            rwamaganapath.add(new Point(825, 384));
+            rwamaganapath.add(new Point(780, 401));
+            rwamaganapath.add(new Point(722, 384));
+            rwamaganapath.add(new Point(735, 350));
+            rwamaganapath.closed = true;
+            rwamaganapath.smooth();
+            
+            rwamaganapath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'rwamagana'){
+                        scoreUp();
+                    }else{
+                        scoreDown(); 
+                    }
+                }
+            
+        var rwamaganainfo = new PointText(new Point(40, 340));
+            rwamaganainfo.strokeColor = 'black';
+            rwamaganainfo.fontSize = 12;
+        
+        rwamaganapath.onMouseEnter = function(event) {
+            text.content = 'rwamagana';       
+            text.visible = true;
+            rwamaganainfo.content = 'Rwamagana lies approximately 50 km (31 mi) from Kigali,\nRwamagana district has about 14 sectors including:\nKigabiro, Muyumbu, Nyakariro, Karenge, Nzige, Gahengeri,\nMwurire, Rubona, Gishari, Munyiginya, Muhazi, Gishari,\nMusha and Munyaga. (source: wikipedia)';
+            rwamaganainfo.visible = true;
+            scaleUp(rwamaganapath);
+            }
+    
+        rwamaganapath.onMouseLeave = function(event) {
+            text.visible = false;
+            rwamaganainfo.visible = false;
+            scaleDown(rwamaganapath);
+            }
+            vintagePoint(728, 320);
+            
+        //---
+
+        var bugeserapath = new Path();
+            bugeserapath.fillColor = '#1C4427';
+            bugeserapath.add(new Point(722, 384));
+            bugeserapath.add(new Point(780, 401));
+            bugeserapath.add(new Point(785, 470));
+            bugeserapath.add(new Point(761, 489));
+            bugeserapath.add(new Point(717, 491));
+            bugeserapath.add(new Point(682, 465));
+            bugeserapath.add(new Point(674, 421));
+            bugeserapath.add(new Point(672, 398));
+            bugeserapath.add(new Point(697, 376));
+            bugeserapath.closed = true;
+            bugeserapath.smooth();
+ 
+            bugeserapath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'bugesera'){
+                        scoreUp();
+                    }else{
+                        scoreDown();
+                    }
+                }
+            
+        var bugeserainfo = new PointText(new Point(40, 340));
+            bugeserainfo.strokeColor = 'black';
+            bugeserainfo.fontSize = 12;
+        
+        bugeserapath.onMouseEnter = function(event) {
+            text.content = 'bugesera';       
+            text.visible = true;
+            bugeserainfo.content = 'Bugesera is a district (akarere) in Eastern Province,\nRwanda. Its capital is Nyamata. Bugesera district is\ndivided into 15 sectors (imirenge): Gashora, Kamabuye,\nJuru,  Ntarama,  Mareba, Mayange, Musenyi, Mwogo,\nNgeruka, Nyamata, Nyarugenge, Rilima, Ruhuha, Rweru\nand Shyara. (source: wikipedia)';
+            bugeserainfo.visible = true;
+            scaleUp(bugeserapath);
+            }
+    
+        bugeserapath.onMouseLeave = function(event) {
+            text.visible = false;
+            bugeserainfo.visible = false;
+            scaleDown(bugeserapath);
+            
+            }
+            vintagePoint(665, 398);
+            
+        //---
+        
+        var ngomapath = new Path();
+            ngomapath.strokeColor = 'blue';
+            ngomapath.fillColor = '#35632D';
+            ngomapath.add(new Point(780, 401));
+            ngomapath.add(new Point(825, 384));
+            ngomapath.add(new Point(873, 411));
+            ngomapath.add(new Point(882, 432));
+            ngomapath.add(new Point(848, 466));
+            ngomapath.add(new Point(796, 464));
+            ngomapath.add(new Point(785, 470));
+            ngomapath.closed = true;
+            ngomapath.smooth();
+            
+            ngomapath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'ngoma'){
+                        scoreUp();
+                    }else{
+                        scoreDown();
+                    }
+            }
+            
+        var ngomainfo = new PointText(new Point(40, 340));
+            ngomainfo.strokeColor = 'black';
+            ngomainfo.fontSize = 12;
+        
+        ngomapath.onMouseEnter = function(event) {
+            text.content = 'ngoma';       
+            text.visible = true;
+            ngomainfo.content = 'Ngoma is a district (akarere) in Eastern Province,\nRwanda. Its capital is Kibungo. Ngoma district is\ndivided into 14 sectors (imirenge): Gashanda, Jarama,\nKarembo, Kazo, Kibungo, Mugesera, Murama, Mutenderi,\nRemera, Rukira, Rukumberi, Rurenge, Sake and Zaza. \n(source: wikipedia)';
+            ngomainfo.visible = true;
+            scaleUp(ngomapath);
+            }
+    
+        ngomapath.onMouseLeave = function(event) {
+            text.visible = false;
+            ngomainfo.visible = false;
+            scaleDown(ngomapath);
+            }
+            vintagePoint(840, 473);
+            
+        //---
+        
+        var kirehepath = new Path();
+            kirehepath.fillColor = '#113D16';
+            kirehepath.add(new Point(873, 411));
+            kirehepath.add(new Point(945, 356));
+            kirehepath.add(new Point(966, 393));
+            kirehepath.add(new Point(939, 479));
+            kirehepath.add(new Point(901, 479));
+            kirehepath.add(new Point(858, 476));
+            kirehepath.add(new Point(848, 466));
+            kirehepath.closed = true;
+            //kirehepath.fullySelected = true;
+            kirehepath.smooth();
+        
+            kirehepath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'kirehe'){
+                        scoreUp();
+                    }else{
+                        scoreDown();
+                    }
+            }
+            
+        var kireheinfo = new PointText(new Point(40, 340));
+            kireheinfo.strokeColor = 'black';
+            kireheinfo.fontSize = 12;
+        
+        kirehepath.onMouseEnter = function(event) {
+            text.content = 'kirehe';       
+            text.visible = true;
+            kireheinfo.content = 'Kirehe is a district (akarere) in Eastern Province,\nRwanda. Its capital is Kirehe town (which is usually\nknown as Rusumo, being the major settlement of the\nformer Rusumo district). Its most noteworthy feature\nis Rusumo Falls, the waterfall on the Kagera River,\nwhich has been key to Rwandan history.\nKirehe district is divided into 12 sectors(imirenge):\nGahara, Gatore, Kigarama, Kigina, Kirehe, Mahama,\nMpanga, Musaza, Mushikiri, Nasho, Nyamugari, \nNyarubuye. (source: wikipedia)';
+            kireheinfo.visible = true;
+            scaleUp(kirehepath);
+            }
+    
+        kirehepath.onMouseLeave = function(event) {
+            text.visible = false;
+            kireheinfo.visible = false;
+            scaleDown(kirehepath);
+            }
+            vintagePoint(957, 365);
+               
+        
+        //---
+        
+        var newpathprototype = new Path();
+            newpathprototype.add(new Point(60,60));
+            newpathprototype.add(new Point(100, 60));
+            newpathprototype.add(new Point(100, 100));
+            newpathprototype.add(new Point(60, 100));
+            newpathprototype.closed = true;
+            newpathprototype.smooth();
+             
+             
+        //---kigali
+        
+        var kigalipath = newpathprototype.clone();
+            kigalipath.fillColor = '#1F68DD';
+            kigalipath.position.x += 605;
+            kigalipath.position.y += 260;
+            
+            kigalipath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'kigali'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var kigalinfo = new PointText(new Point(40, 340));
+            kigalinfo.strokeColor = 'black';
+            kigalinfo.fontSize = 12;
+            
+            kigalipath.onMouseEnter = function(event) { 
+            text.content = 'Kigali';       
+            text.visible = true;
+            kigalinfo.content = '';
+            kigalinfo.visible = true;
+            scaleUp(kigalipath);
+            }
+            
+            kigalipath.onMouseLeave = function(event) {
+            text.visible = false;
+            kigalinfo.visible = false;
+            scaleDown(kigalipath);
+            }
+
+        
+        //---northern
+        
+        var gicumbipath = newpathprototype.clone();
+            gicumbipath.fillColor = '#D39C10';         
+            gicumbipath.position.x += 595;
+            gicumbipath.position.y += 105;
+            
+            gicumbipath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'gicumbi'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var gicumbinfo = new PointText(new Point(40, 340));
+            gicumbinfo.strokeColor = 'black';
+            gicumbinfo.fontSize = 12;
+            
+            gicumbipath.onMouseEnter = function(event) { 
+            text.content = 'gicumbi';       
+            text.visible = true;
+            gicumbinfo.content = '';
+            gicumbinfo.visible = true;
+            scaleUp(gicumbipath);
+            }
+            
+            gicumbipath.onMouseLeave = function(event) {
+            text.visible = false;
+            gicumbinfo.visible = false;
+            scaleDown(gicumbipath);
+            }
+            
+        //---
+        
+        var rulindopath = newpathprototype.clone();
+            rulindopath.fillColor = '#D39C10';
+            rulindopath.position.x += 590;
+            rulindopath.position.y += 175;
+            
+            rulindopath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'rulindo'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var rulindoinfo = new PointText(new Point(40, 340));
+            rulindoinfo.strokeColor = 'black';
+            rulindoinfo.fontSize = 12;
+            
+            rulindopath.onMouseEnter = function(event) { 
+            text.content = 'rulindo';       
+            text.visible = true;
+            rulindoinfo.content = '';
+            rulindoinfo.visible = true;
+            scaleUp(rulindopath);
+            }
+            
+            rulindopath.onMouseLeave = function(event) {
+            text.visible = false;
+            rulindoinfo.visible = false;
+            scaleDown(rulindopath);
+            }
+        
+        //---
+        
+        var burerapath = newpathprototype.clone();
+            burerapath.fillColor = '#D39C10';
+            burerapath.position.x += 535;
+            burerapath.position.y += 65;
+            
+            burerapath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'burera'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var burerainfo = new PointText(new Point(40, 340));
+            burerainfo.strokeColor = 'black';
+            burerainfo.fontSize = 12;
+            
+            burerapath.onMouseEnter = function(event) { 
+            text.content = 'burera';       
+            text.visible = true;
+            burerainfo.content = '';
+            burerainfo.visible = true;
+            scaleUp(burerapath);
+            }
+            
+            burerapath.onMouseLeave = function(event) {
+            text.visible = false;
+            burerainfo.visible = false;
+            scaleDown(burerapath);
+            }
+            
+        //---
+        
+        var gakenkepath = newpathprototype.clone();
+            gakenkepath.fillColor = '#D39C10';
+            gakenkepath.position.x += 535;
+            gakenkepath.position.y += 135;
+            
+            gakenkepath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'gakenke'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var gakenkeinfo = new PointText(new Point(40, 340));
+            gakenkeinfo.strokeColor = 'black';
+            gakenkeinfo.fontSize = 12;
+            
+            gakenkepath.onMouseEnter = function(event) { 
+            text.content = 'gakenke';       
+            text.visible = true;
+            gakenkeinfo.content = '';
+            gakenkeinfo.visible = true;
+            scaleUp(gakenkepath);
+            }
+            
+            gakenkepath.onMouseLeave = function(event) {
+            text.visible = false;
+            gakenkeinfo.visible = false;
+            scaleDown(gakenkepath);
+            }
+            
+            
+        //---
+        
+        var musanzepath = newpathprototype.clone();
+            musanzepath.fillColor = '#D39C10';
+            musanzepath.position.x += 473;
+            musanzepath.position.y += 98;
+            
+            musanzepath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'musanze'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var musanzeinfo = new PointText(new Point(40, 340));
+            musanzeinfo.strokeColor = 'black';
+            musanzeinfo.fontSize = 12;
+            
+            musanzepath.onMouseEnter = function(event) { 
+            text.content = 'musanze';       
+            text.visible = true;
+            musanzeinfo.content = '';
+            musanzeinfo.visible = true;
+            scaleUp(musanzepath);
+            }
+            
+            musanzepath.onMouseLeave = function(event) {
+            text.visible = false;
+            musanzeinfo.visible = false;
+            scaleDown(musanzepath);
+            }
+        
+        //---
+        
+        //---southern
+        
+        var kamonyipath = newpathprototype.clone();
+            kamonyipath.fillColor = '#915151';
+            kamonyipath.position.x += 550;
+            kamonyipath.position.y += 220;
+            
+            kamonyipath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'kamonyi'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var kamonyinfo = new PointText(new Point(40, 340));
+            kamonyinfo.strokeColor = 'black';
+            kamonyinfo.fontSize = 12;
+            
+            kamonyipath.onMouseEnter = function(event) { 
+            text.content = 'kamonyi';       
+            text.visible = true;
+            kamonyinfo.content = '';
+            kamonyinfo.visible = true;
+            scaleUp(kamonyipath);
+            }
+            
+            kamonyipath.onMouseLeave = function(event) {
+            text.visible = false;
+            kamonyinfo.visible = false;
+            scaleDown(kamonyipath);
+            }
+        
+        //---
+        
+        var muhangapath = newpathprototype.clone();
+            muhangapath.fillColor = '#915151';
+            muhangapath.position.x += 490;
+            muhangapath.position.y += 220;
+            
+            muhangapath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'muhanga'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+        
+        var muhangainfo = new PointText(new Point(40, 340));
+            muhangainfo.strokeColor = 'black';
+            muhangainfo.fontSize = 12;
+            
+            muhangapath.onMouseEnter = function(event) { 
+            text.content = 'muhanga';       
+            text.visible = true;
+            muhangainfo.content = '';
+            muhangainfo.visible = true;
+            scaleUp(muhangapath);
+            }
+            
+            muhangapath.onMouseLeave = function(event) {
+            text.visible = false;
+            muhangainfo.visible = false;
+            scaleDown(muhangapath);
+            }    
+        
+        //---
+            
+        var ruhangopath = newpathprototype.clone();
+            ruhangopath.fillColor = '#915151';
+            ruhangopath.position.x += 530;
+            ruhangopath.position.y += 280;
+            
+            ruhangopath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'ruhango'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+        
+        var ruhangoinfo = new PointText(new Point(40, 340));
+            ruhangoinfo.strokeColor = 'black';
+            ruhangoinfo.fontSize = 12;
+            
+            ruhangopath.onMouseEnter = function(event) { 
+            text.content = 'ruhango';       
+            text.visible = true;
+            ruhangoinfo.content = '';
+            ruhangoinfo.visible = true;
+            scaleUp(ruhangopath);
+            }
+            
+            ruhangopath.onMouseLeave = function(event) {
+            text.visible = false;
+            ruhangoinfo.visible = false;
+            scaleDown(ruhangopath);
+            }
+            
+        //---
+        
+        var nyanzapath = newpathprototype.clone();
+            nyanzapath.fillColor = '#915151';
+            nyanzapath.position.x += 560;
+            nyanzapath.position.y += 340;
+            
+            nyanzapath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'nyanza'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+        
+        var nyanzainfo = new PointText(new Point(40, 340));
+            nyanzainfo.strokeColor = 'black';
+            nyanzainfo.fontSize = 12;
+            
+            nyanzapath.onMouseEnter = function(event) { 
+            text.content = 'nyanza';       
+            text.visible = true;
+            nyanzainfo.content = '';
+            nyanzainfo.visible = true;
+            scaleUp(nyanzapath);
+            }
+            
+            nyanzapath.onMouseLeave = function(event) {
+            text.visible = false;
+            nyanzainfo.visible = false;
+            scaleDown(nyanzapath);
+            }
+        
+        //---
+        
+        var huyepath = newpathprototype.clone();
+            huyepath.fillColor = '#915151';
+            huyepath.position.x += 490;
+            huyepath.position.y += 330;
+            
+            huyepath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'huye'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+           
+        
+        var huyeinfo = new PointText(new Point(40, 340));
+            huyeinfo.strokeColor = 'black';
+            huyeinfo.fontSize = 12;
+            
+            huyepath.onMouseEnter = function(event) { 
+            text.content = 'huye';       
+            text.visible = true;
+            huyeinfo.content = '';
+            huyeinfo.visible = true;
+            scaleUp(huyepath);
+            }
+            
+            huyepath.onMouseLeave = function(event) {
+            text.visible = false;
+            huyeinfo.visible = false;
+            scaleDown(huyepath);
+            }
+            
+            
+        //---
+        
+        var gisagarapath = newpathprototype.clone();
+            gisagarapath.fillColor = '#915151';
+            gisagarapath.position.x += 520;
+            gisagarapath.position.y += 390;
+            
+            gisagarapath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'gisagara'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var gisagarainfo = new PointText(new Point(40, 340));
+            gisagarainfo.strokeColor = 'black';
+            gisagarainfo.fontSize = 12;
+            
+            gisagarapath.onMouseEnter = function(event) { 
+            text.content = 'gisagara';       
+            text.visible = true;
+            gisagarainfo.content = '';
+            gisagarainfo.visible = true;
+            scaleUp(gisagarapath);
+            }
+            
+            gisagarapath.onMouseLeave = function(event) {
+            text.visible = false;
+            gisagarainfo.visible = false;
+            scaleDown(gisagarapath);
+            }
+        
+        //---
+        
+        var nyarugurupath = newpathprototype.clone();
+            nyarugurupath.fillColor = '#915151';
+            nyarugurupath.position.x += 450;
+            nyarugurupath.position.y += 390;
+            
+            nyarugurupath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'nyaruguru'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var nyaruguruinfo = new PointText(new Point(40, 340));
+            nyaruguruinfo.strokeColor = 'black';
+            nyaruguruinfo.fontSize = 12;
+            
+            nyarugurupath.onMouseEnter = function(event) { 
+            text.content = 'nyaruguru';       
+            text.visible = true;
+            nyaruguruinfo.content = '';
+            nyaruguruinfo.visible = true;
+            scaleUp(nyarugurupath);
+            }
+            
+            nyarugurupath.onMouseLeave = function(event) {
+            text.visible = false;
+            nyaruguruinfo.visible = false;
+            scaleDown(nyarugurupath);
+            }
+            
+        //---
+        
+        var nyamagabepath = newpathprototype.clone();
+            nyamagabepath.fillColor = '#915151';
+            nyamagabepath.position.x += 455;
+            nyamagabepath.position.y += 270;
+            
+            nyamagabepath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'nyamagabe'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var nyamagabeinfo = new PointText(new Point(40, 340));
+            nyamagabeinfo.strokeColor = 'black';
+            nyamagabeinfo.fontSize = 12;
+            
+            nyamagabepath.onMouseEnter = function(event) { 
+            text.content = 'nyamagabe';       
+            text.visible = true;
+            nyamagabeinfo.content = '';
+            nyamagabeinfo.visible = true;
+            scaleUp(nyamagabepath);
+            }
+            
+            nyamagabepath.onMouseLeave = function(event) {
+            text.visible = false;
+            nyamagabeinfo.visible = false;
+            scaleDown(nyamagabepath);
+            }
+            
+        
+        //---western
+        
+        var nyabihupath = newpathprototype.clone();
+            nyabihupath.fillColor = '#D14710';
+            nyabihupath.position.x += 480;
+            nyabihupath.position.y += 160;
+            
+            nyabihupath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'nyabihu'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var nyabihuinfo = new PointText(new Point(40, 340));
+            nyabihuinfo.strokeColor = 'black';
+            nyabihuinfo.fontSize = 12;
+            
+            nyabihupath.onMouseEnter = function(event) { 
+            text.content = 'nyabihu';       
+            text.visible = true;
+            nyabihuinfo.content = '';
+            nyabihuinfo.visible = true;
+            scaleUp(nyabihupath);
+            }
+            
+            nyabihupath.onMouseLeave = function(event) {
+            text.visible = false;
+            nyabihuinfo.visible = false;
+            scaleDown(nyabihupath);
+            }
+            
+        //---
+            
+        var rubavupath = newpathprototype.clone();
+            rubavupath.fillColor = '#D14710';
+            rubavupath.position.x += 410;
+            rubavupath.position.y += 140;
+            
+            rubavupath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'rubavu'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var rubavuinfo = new PointText(new Point(40, 340));
+            rubavuinfo.strokeColor = 'black';
+            rubavuinfo.fontSize = 12;
+            
+            rubavupath.onMouseEnter = function(event) { 
+            text.content = 'rubavu';       
+            text.visible = true;
+            rubavuinfo.content = '';
+            rubavuinfo.visible = true;
+            scaleUp(rubavupath);
+            }
+            
+            rubavupath.onMouseLeave = function(event) {
+            text.visible = false;
+            rubavuinfo.visible = false;
+            scaleDown(rubavupath);
+            }
+            
+        //---
+            
+        var ngororeropath = newpathprototype.clone();
+            ngororeropath.fillColor = '#D14710';
+            ngororeropath.position.x += 420;
+            ngororeropath.position.y += 205;
+            
+            ngororeropath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'ngororero'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var ngororeroinfo = new PointText(new Point(40, 340));
+            ngororeroinfo.strokeColor = 'black';
+            ngororeroinfo.fontSize = 12;
+            
+            ngororeropath.onMouseEnter = function(event) { 
+            text.content = 'ngororero';       
+            text.visible = true;
+            ngororeroinfo.content = '';
+            ngororeroinfo.visible = true;
+            scaleUp(ngororeropath);
+            }
+            
+            ngororeropath.onMouseLeave = function(event) {
+            text.visible = false;
+            ngororeroinfo.visible = false;
+            scaleDown(ngororeropath);
+            }
+            
+        //---
+            
+        var rutsiropath = newpathprototype.clone();
+            rutsiropath.fillColor = '#D14710';
+            rutsiropath.position.x += 350;
+            rutsiropath.position.y += 210;
+            
+            rutsiropath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'rutsiro'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+        var rutsiroinfo = new PointText(new Point(40, 340));
+            rutsiroinfo.strokeColor = 'black';
+            rutsiroinfo.fontSize = 12;
+            
+            rutsiropath.onMouseEnter = function(event) { 
+            text.content = 'rutsiro';       
+            text.visible = true;
+            rutsiroinfo.content = '';
+            rutsiroinfo.visible = true;
+            scaleUp(rutsiropath);
+            }
+            
+            rutsiropath.onMouseLeave = function(event) {
+            text.visible = false;
+            rutsiroinfo.visible = false;
+            scaleDown(rutsiropath);
+            }
+            
+            
+        //---
+            
+        var karongipath = newpathprototype.clone();
+            karongipath.fillColor = '#D14710';
+            karongipath.position.x += 390;
+            karongipath.position.y += 270;
+            
+            karongipath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'karongi'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+        
+        var karonginfo = new PointText(new Point(40, 340));
+            karonginfo.strokeColor = 'black';
+            karonginfo.fontSize = 12;
+            
+            karongipath.onMouseEnter = function(event) { 
+            text.content = 'karongi';       
+            text.visible = true;
+            karonginfo.content = '';
+            karonginfo.visible = true;
+            scaleUp(karongipath);
+            }
+            
+            karongipath.onMouseLeave = function(event) {
+            text.visible = false;
+            karonginfo.visible = false;
+            scaleDown(karongipath);
+            }
+        
+        //---
+            
+        var nyamashekepath = newpathprototype.clone();
+            nyamashekepath.fillColor = '#D14710';
+            nyamashekepath.position.x += 420;
+            nyamashekepath.position.y += 330;
+            
+            nyamashekepath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'nyamasheke'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+        
+        var nyamashekeinfo = new PointText(new Point(40, 340));
+            nyamashekeinfo.strokeColor = 'black';
+            nyamashekeinfo.fontSize = 12;
+            
+            nyamashekepath.onMouseEnter = function(event) { 
+            text.content = 'nyamasheke';       
+            text.visible = true;
+            nyamashekeinfo.content = '';
+            nyamashekeinfo.visible = true;
+            scaleUp(nyamashekepath);
+            }
+            
+            nyamashekepath.onMouseLeave = function(event) {
+            text.visible = false;
+            nyamashekeinfo.visible = false;
+            scaleDown(nyamashekepath);
+            }
+        
+        //---
+            
+        var rusizipath = newpathprototype.clone();
+            rusizipath.fillColor = '#D14710';
+            rusizipath.position.x += 370;
+            rusizipath.position.y += 380;
+            
+            rusizipath.onMouseDown = function(event){
+                if (allprovinces[alldistricts] == 'rusizi'){
+                        scoreUp();
+                    } else{
+                        scoreDown();
+                    }
+                }
+            
+            
+        var rusizinfo = new PointText(new Point(40, 340));
+            rusizinfo.strokeColor = 'black';
+            rusizinfo.fontSize = 12;
+            
+            rusizipath.onMouseEnter = function(event) { 
+            text.content = 'rusizi';       
+            text.visible = true;
+            rusizinfo.content = '';
+            rusizinfo.visible = true;
+            scaleUp(rusizipath);
+            }
+            
+            rusizipath.onMouseLeave = function(event) {
+            text.visible = false;
+            rusizinfo.visible = false;
+            scaleDown(rusizipath);
+            }
+            
+            
+        var newprototypelegend = new Path();
+            newprototypelegend.add(new Point(1050, 420));
+            newprototypelegend.add(new Point(1150, 420));
+            newprototypelegend.add(new Point(1150, 450));
+            newprototypelegend.add(new Point(1050, 450));
+            newprototypelegend.closed = true;
+            
+        var legendTitle = new PointText(new Point(1050, 420))
+            legendTitle.strokeColor = 'black';
+            legendTitle.fontSize = 12;
+            legendTitle.content = 'Legend';
+        
+        var EastLegendText = legendTitle.clone();
+            EastLegendText.position.x -= 40;
+            EastLegendText.position.y += 40;
+            EastLegendText.content = 'East';
+            
+        var WestLegendText = legendTitle.clone();
+            WestLegendText.position.x -= 40;
+            WestLegendText.position.y += 75;
+            WestLegendText.content = 'West';
+            
+        var NorthLegendText = legendTitle.clone();
+            NorthLegendText.position.x -= 40;
+            NorthLegendText.position.y += 110;
+            NorthLegendText.content = 'North';
+            
+        var SouthLegendText = legendTitle.clone();
+            SouthLegendText.position.x -= 40;
+            SouthLegendText.position.y += 145;
+            SouthLegendText.content = 'South';
+            
+        var legendEast = newprototypelegend.clone();
+            legendEast.fillColor = '#205E25';
+            legendEast.position.x = 1100;
+            legendEast.position.y += 30;            
+            
+        var legendWest = newprototypelegend.clone();
+            legendWest.fillColor = '#D14710';
+            legendWest.position.x = 1100;
+            legendWest.position.y += 65;
+            
+        var legendNorth = newprototypelegend.clone();
+            legendNorth.fillColor = '#D39C10';
+            legendNorth.position.x = 1100;
+            legendNorth.position.y += 100;
+        
+        var legendSouth = newprototypelegend.clone();
+            legendSouth.fillColor = '#915151';
+            legendSouth.position.x = 1100;
+            legendSouth.position.y += 135;
+        
+        
+        
+    </script>
+</head>
+<body bgcolor="#9DB299">
+    
+    <canvas id="canvas" resize style="background-color: #9DB299" width="1300" height="1024"></canvas>            
+    <!-- Insert your content here -->
+    <footer>Copyright&copy 2016 Imena Labs Ltd. [support@imenalabs.ca]</footer>
 </body>
 </html>

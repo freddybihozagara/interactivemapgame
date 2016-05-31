@@ -1,17 +1,6 @@
-<!doctype html>
+ 
 
-<html lang="en">    
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-        <audio controls autoplay loop>
-        <source id='soundEFx' src="assets/media/in_the_morning.mp3" type="audio/mpeg" preload="auto">
-        Your browser does not support the audio element.
-        </audio>
-        
-    <title>Interactive Map</title>
-    <script type="text/javascript" src="js/paper.js"></script>
-    <script type="text/paperscript" canvas="canvas">
-        
-        var allprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe', 'gicumbi', 'rulindo', 'gakenke', 'burera', 'musanze', 'kamonyi', 'muhanga', 'nyaruguru', 'ruhango', 'nyamagabe', 'nyanza', 'huye', 'gisagara', 'kigali', 'nyabihu', 'rubavu', 'rutsiro', 'ngororero', 'karongi', 'nyamasheke', 'rusizi'];
+ var allprovinces = ['nyagatare', 'gatsibo', 'kayonza', 'rwamagana', 'bugesera', 'ngoma', 'kirehe', 'gicumbi', 'rulindo', 'gakenke', 'burera', 'musanze', 'kamonyi', 'muhanga', 'nyaruguru', 'ruhango', 'nyamagabe', 'nyanza', 'huye', 'gisagara', 'kigali', 'nyabihu', 'rubavu', 'rutsiro', 'ngororero', 'karongi', 'nyamasheke', 'rusizi'];
         var twentysevenRounds = Math.random()*27;
         var alldistricts = Math.round(twentysevenRounds);
         
@@ -1263,14 +1252,3 @@
             legendSouth.position.x = 1100;
             legendSouth.position.y += 135;
         
-        
-        
-    </script>
-</head>
-<body bgcolor="#9DB299">
-    
-    <canvas id="canvas" resize style="background-color: #9DB299" width="1300" height="1024"></canvas>            
-    <!-- Insert your content here -->
-    <footer>Copyright&copy 2016 Imena Labs Ltd. [support@imenalabs.ca]</footer>
-</body>
-</html>
