@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/frdb194/interactivemapgame.svg?branch=master)](https://travis-ci.org/frdb194/interactivemapgame)
+
 Interactive Map Game
 ====================
 
